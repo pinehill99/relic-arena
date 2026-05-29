@@ -1,5 +1,5 @@
 import React, { useEffect, useReducer, useRef, useState, useCallback } from "react";
-import type { GameState, UnitInstance, RoundMonster, TraitName } from "./types";
+import type { GameState, RoundMonster } from "./types";
 import {
   clone,
   createInitialState,
@@ -29,20 +29,14 @@ import { fieldPower } from "./engine/scoring";
 import { sellValue, xpToNext } from "./engine/economy";
 import { TRAIT_BY_NAME, TIER_COLORS, TIER_NAMES } from "./data/traits";
 import { UnitIcon, ItemIcon, TraitIcon } from "./components/icons";
+import type { Inspect } from "./inspect";
+import { nextInspectFromHover } from "./inspect";
 
 const CELL = 58;
 
 function monstersForRound(state: GameState, round: number): RoundMonster[] {
   return generateRound(round, new RNG(state.seed + round * 7919));
 }
-
-type Inspect =
-  | { kind: "unit"; inst: UnitInstance }
-  | { kind: "shop"; defId: number }
-  | { kind: "item"; itemId: string }
-  | { kind: "trait"; name: TraitName }
-  | { kind: "monster"; m: RoundMonster }
-  | null;
 
 export default function App() {
   const [gs, setGs] = useState<GameState>(() => loadState() ?? createInitialState());
@@ -64,6 +58,10 @@ export default function App() {
       return next;
     });
   }, []);
+
+  const inspectOnHover = useCallback((hovered: NonNullable<Inspect>) => {
+    setInspect((current) => nextInspectFromHover(current, hovered, selectedUnit));
+  }, [selectedUnit]);
 
   useEffect(() => {
     saveState(gs);
@@ -235,7 +233,7 @@ export default function App() {
               content = (
                 <div
                   className={"token" + (sel ? " sel" : "")}
-                  onMouseEnter={() => setInspect({ kind: "unit", inst: occ })}
+                  onMouseEnter={() => inspectOnHover({ kind: "unit", inst: occ })}
                 >
                   <UnitIcon def={def} star={occ.star} size={CELL - 12} />
                   {occ.items.length > 0 && <ItemDots items={occ.items} />}
@@ -250,7 +248,7 @@ export default function App() {
               content = (
                 <div
                   className="token enemy"
-                  onMouseEnter={() => setInspect({ kind: "monster", m })}
+                  onMouseEnter={() => inspectOnHover({ kind: "monster", m })}
                 >
                   <MonsterToken m={m} />
                 </div>
@@ -299,7 +297,7 @@ export default function App() {
               className={"shop-card" + (affordable ? "" : " disabled")}
               style={{ borderColor: def.costColor }}
               onClick={() => affordable && mutate((s) => buyUnit(s, i))}
-              onMouseEnter={() => setInspect({ kind: "shop", defId })}
+              onMouseEnter={() => inspectOnHover({ kind: "shop", defId })}
             >
               <div className="shop-icon">
                 <UnitIcon def={def} size={40} />
@@ -336,7 +334,7 @@ export default function App() {
           {inst && (
             <div
               className={"token" + (selectedUnit === inst.iid ? " sel" : "")}
-              onMouseEnter={() => setInspect({ kind: "unit", inst })}
+              onMouseEnter={() => inspectOnHover({ kind: "unit", inst })}
             >
               <UnitIcon def={UNIT_BY_ID[inst.defId]} star={inst.star} size={44} />
               {inst.items.length > 0 && <ItemDots items={inst.items} />}
@@ -360,7 +358,7 @@ export default function App() {
               <div
                 key={i}
                 className={"inv-item" + (sel ? " sel" : "")}
-                onMouseEnter={() => setInspect({ kind: "item", itemId: id })}
+                onMouseEnter={() => inspectOnHover({ kind: "item", itemId: id })}
                 onClick={() => onInventoryClick(id, i)}
                 title={item.name}
               >
@@ -390,7 +388,7 @@ export default function App() {
               key={t.name}
               className={"synergy" + (active ? " active" : "")}
               style={{ background: bg }}
-              onMouseEnter={() => setInspect({ kind: "trait", name: t.name })}
+              onMouseEnter={() => inspectOnHover({ kind: "trait", name: t.name })}
             >
               <TraitIcon name={t.name} size={16} />
               <span className="syn-name">{t.name}</span>
