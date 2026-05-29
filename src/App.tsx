@@ -29,6 +29,9 @@ import { fieldPower } from "./engine/scoring";
 import { sellValue, xpToNext } from "./engine/economy";
 import { TRAIT_BY_NAME, TIER_COLORS, TIER_NAMES } from "./data/traits";
 import { UnitIcon, ItemIcon, TraitIcon, TurretIcon } from "./components/icons";
+import { HelpModal } from "./components/HelpModal";
+import { InspectorTraits, SynergyChip, TraitEffectPanel } from "./components/trait-ui";
+import { HELP_DISMISS_KEY } from "./data/help";
 import type { Inspect } from "./inspect";
 import { nextInspectFromHover } from "./inspect";
 import { engineerTurretStats, isEngineerTurret } from "./engine/turrets";
@@ -45,6 +48,7 @@ export default function App() {
   const [selectedUnit, setSelectedUnit] = useState<string | null>(null);
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
   const [inspect, setInspect] = useState<Inspect>(null);
+  const [helpOpen, setHelpOpen] = useState(false);
   const [combat, setCombat] = useState<Combat | null>(null);
   const combatRef = useRef<Combat | null>(null);
   const intervalRef = useRef<number | null>(null);
@@ -67,6 +71,12 @@ export default function App() {
   useEffect(() => {
     saveState(gs);
   }, [gs]);
+
+  useEffect(() => {
+    if (gs.phase !== "prep") return;
+    if (localStorage.getItem(HELP_DISMISS_KEY)) return;
+    setHelpOpen(true);
+  }, []);
 
   // ---- Combat loop ----
   const startCombat = useCallback(() => {
@@ -125,6 +135,7 @@ export default function App() {
     setSelectedUnit(null);
     setSelectedItem(null);
     setInspect(null);
+    setHelpOpen(false);
   }, []);
 
   // ---- click handlers ----
@@ -388,26 +399,13 @@ export default function App() {
     return (
       <div className="synergies">
         {activeTraits.length === 0 && <div className="muted small">Field units to activate synergies.</div>}
-        {activeTraits.map((t) => {
-          const active = t.activeTierIndex >= 0;
-          const bg = active ? TIER_COLORS[t.activeTierIndex] : "#1e293b";
-          return (
-            <div
-              key={t.name}
-              className={"synergy" + (active ? " active" : "")}
-              style={{ background: bg }}
-              onMouseEnter={() => inspectOnHover({ kind: "trait", name: t.name })}
-            >
-              <TraitIcon name={t.name} size={16} />
-              <span className="syn-name">{t.name}</span>
-              <span className="syn-count">
-                {t.count}
-                {t.nextThreshold ? `/${t.nextThreshold}` : ""}
-              </span>
-              {active && <span className="syn-tier">{TIER_NAMES[t.activeTierIndex]}</span>}
-            </div>
-          );
-        })}
+        {activeTraits.map((t) => (
+          <SynergyChip
+            key={t.name}
+            trait={t}
+            onInspect={() => inspectOnHover({ kind: "trait", name: t.name })}
+          />
+        ))}
       </div>
     );
   }
@@ -453,12 +451,10 @@ export default function App() {
               </div>
             </div>
           </div>
-          <div className="insp-traits">
-            <span><TraitIcon name={def.origin} size={13} /> {def.origin}</span>
-            {def.classes.map((c) => (
-              <span key={c}><TraitIcon name={c} size={13} /> {c}</span>
-            ))}
-          </div>
+          <InspectorTraits
+            traits={[def.origin, ...def.classes]}
+            activeTraits={activeTraits}
+          />
           <div className="stat-row">
             <span>HP {def.hp}</span>
             <span>AD {def.attackDamage}</span>
@@ -517,15 +513,7 @@ export default function App() {
       const at = activeTraits.find((a) => a.name === inspect.name);
       return (
         <div className="inspect">
-          <div className="insp-head">
-            <TraitIcon name={t.name} size={36} />
-            <div>
-              <div className="insp-name">{t.name}</div>
-              <div className="small">{t.kind} · thresholds {t.thresholds.join(" / ")}</div>
-            </div>
-          </div>
-          <div className="small">{t.description}</div>
-          {at && <div className="small muted">Currently fielded: {at.count} unique</div>}
+          <TraitEffectPanel name={inspect.name} active={at} />
         </div>
       );
     }
@@ -569,10 +557,21 @@ export default function App() {
           <span className="power">⚔ Field Power: {power}</span>
         </div>
         <div className="tb-right">
+          <button type="button" className="ghost help-btn" onClick={() => setHelpOpen(true)}>
+            도감
+          </button>
           <span className="small muted">Seed {gs.seed}</span>
           <button className="ghost" onClick={newRun}>New Run</button>
         </div>
       </div>
+
+      <HelpModal
+        open={helpOpen}
+        onClose={() => {
+          localStorage.setItem(HELP_DISMISS_KEY, "1");
+          setHelpOpen(false);
+        }}
+      />
 
       <div className="layout">
         {/* left rail */}

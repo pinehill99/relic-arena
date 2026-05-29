@@ -32,4 +32,11 @@ describe("hover inspector locking", () => {
 
     expect(nextInspectFromHover(current, hovered, null)).toBe(hovered);
   });
+
+  it("shows trait details on hover even while a unit is selected", () => {
+    const current: Inspect = { kind: "unit", inst: selectedUnit };
+    const hovered: Inspect = { kind: "trait", name: "Ember" };
+
+    expect(nextInspectFromHover(current, hovered, selectedUnit.iid)).toBe(hovered);
+  });
 });
