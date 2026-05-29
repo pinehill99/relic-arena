@@ -28,9 +28,10 @@ import { computeActiveTraits } from "./engine/synergies";
 import { fieldPower } from "./engine/scoring";
 import { sellValue, xpToNext } from "./engine/economy";
 import { TRAIT_BY_NAME, TIER_COLORS, TIER_NAMES } from "./data/traits";
-import { UnitIcon, ItemIcon, TraitIcon } from "./components/icons";
+import { UnitIcon, ItemIcon, TraitIcon, TurretIcon } from "./components/icons";
 import type { Inspect } from "./inspect";
 import { nextInspectFromHover } from "./inspect";
+import { engineerTurretStats, isEngineerTurret } from "./engine/turrets";
 
 const CELL = 58;
 
@@ -70,7 +71,7 @@ export default function App() {
   // ---- Combat loop ----
   const startCombat = useCallback(() => {
     if (gs.phase !== "prep") return;
-    if (gs.board.length === 0) {
+    if (boardCount(gs) === 0) {
       mutate((s) => s.log.unshift("Place at least one unit before fighting."));
       return;
     }
@@ -132,7 +133,7 @@ export default function App() {
     const occupant = gs.board.find((u) => u.row === row && u.col === col);
     const itemId = selectedItem ? selectedItem.split("#")[0] : null;
     if (itemId) {
-      if (occupant) {
+      if (occupant && !isEngineerTurret(occupant)) {
         mutate((s) => equipItem(s, occupant.iid, itemId));
         setSelectedItem(null);
       }
@@ -145,7 +146,7 @@ export default function App() {
     }
     if (occupant) {
       setSelectedUnit(occupant.iid);
-      setInspect({ kind: "unit", inst: occupant });
+      setInspect(isEngineerTurret(occupant) ? { kind: "summon", inst: occupant } : { kind: "unit", inst: occupant });
     }
   }
 
@@ -163,11 +164,12 @@ export default function App() {
     if (selectedUnit) {
       // move selected board unit to bench
       const sel = gs.board.find((u) => u.iid === selectedUnit);
-      if (sel) {
+      if (sel && !isEngineerTurret(sel)) {
         mutate((s) => moveToBench(s, selectedUnit));
         setSelectedUnit(null);
         return;
       }
+      if (sel) return;
       // selected is a bench unit already; just reselect
     }
     if (inst) {
@@ -228,15 +230,21 @@ export default function App() {
           if (isPlayerZone) {
             const occ = gs.board.find((u) => u.row === r && u.col === c);
             if (occ) {
-              const def = UNIT_BY_ID[occ.defId];
               const sel = selectedUnit === occ.iid;
+              const summon = isEngineerTurret(occ);
               content = (
                 <div
-                  className={"token" + (sel ? " sel" : "")}
-                  onMouseEnter={() => inspectOnHover({ kind: "unit", inst: occ })}
+                  className={"token" + (sel ? " sel" : "") + (summon ? " summon" : "")}
+                  onMouseEnter={() => inspectOnHover(summon ? { kind: "summon", inst: occ } : { kind: "unit", inst: occ })}
                 >
-                  <UnitIcon def={def} star={occ.star} size={CELL - 12} />
-                  {occ.items.length > 0 && <ItemDots items={occ.items} />}
+                  {summon ? (
+                    <TurretIcon tier={occ.summon?.tier ?? 0} size={CELL - 12} />
+                  ) : (
+                    <>
+                      <UnitIcon def={UNIT_BY_ID[occ.defId]} star={occ.star} size={CELL - 12} />
+                      {occ.items.length > 0 && <ItemDots items={occ.items} />}
+                    </>
+                  )}
                 </div>
               );
             }
@@ -407,6 +415,27 @@ export default function App() {
   function renderInspector() {
     if (!inspect) {
       return <div className="muted small">Hover a unit, item, trait, or enemy to inspect it.</div>;
+    }
+    if (inspect.kind === "summon") {
+      const tier = inspect.inst.summon?.tier ?? 0;
+      const turret = engineerTurretStats(tier);
+      return (
+        <div className="inspect">
+          <div className="insp-head">
+            <TurretIcon tier={tier} size={48} />
+            <div>
+              <div className="insp-name" style={{ color: turret.frame }}>{turret.name}</div>
+              <div className="small">Engineer turret · tier {tier + 1}</div>
+            </div>
+          </div>
+          <div className="stat-row">
+            <span>HP {turret.hp}</span>
+            <span>AD {Math.round(turret.adMultiplier * 100)}% avg</span>
+            <span>Range {turret.range}</span>
+          </div>
+          <div className="small muted">Board deployable. Cannot be sold, benched, or equipped.</div>
+        </div>
+      );
     }
     if (inspect.kind === "unit" || inspect.kind === "shop") {
       const def = inspect.kind === "unit" ? UNIT_BY_ID[inspect.inst.defId] : UNIT_BY_ID[inspect.defId];
@@ -678,7 +707,13 @@ function CombatToken({ e }: { e: import("./engine/combat").CombatEntity }) {
         {e.maxMana > 0 && <div className="manabar"><div className="manafill" style={{ width: manaPct + "%" }} /></div>}
       </div>
       <div className="ct-body">
-        {e.defId ? <UnitIcon def={UNIT_BY_ID[e.defId]} size={CELL - 18} /> : <span className="ct-letter">{e.name[0]}</span>}
+        {e.turretTier !== undefined ? (
+          <TurretIcon tier={e.turretTier} size={CELL - 18} />
+        ) : e.defId ? (
+          <UnitIcon def={UNIT_BY_ID[e.defId]} size={CELL - 18} />
+        ) : (
+          <span className="ct-letter">{e.name[0]}</span>
+        )}
         {e.shield > 0 && <div className="shield-ring" />}
       </div>
     </div>
@@ -743,13 +778,22 @@ function EndScreen({
         <div className="end-board">
           {gs.board.map((u) => (
             <div key={u.iid} className="end-unit">
-              <UnitIcon def={UNIT_BY_ID[u.defId]} star={u.star} size={44} />
-              <span className="small">{UNIT_BY_ID[u.defId].name}</span>
-              <div className="item-dots">
-                {u.items.map((id, i) => (
-                  <span key={i} className="dot" style={{ background: getItem(id)?.background }} title={getItem(id)?.name} />
-                ))}
-              </div>
+              {isEngineerTurret(u) ? (
+                <>
+                  <TurretIcon tier={u.summon?.tier ?? 0} size={44} />
+                  <span className="small">{engineerTurretStats(u.summon?.tier ?? 0).name}</span>
+                </>
+              ) : (
+                <>
+                  <UnitIcon def={UNIT_BY_ID[u.defId]} star={u.star} size={44} />
+                  <span className="small">{UNIT_BY_ID[u.defId].name}</span>
+                  <div className="item-dots">
+                    {u.items.map((id, i) => (
+                      <span key={i} className="dot" style={{ background: getItem(id)?.background }} title={getItem(id)?.name} />
+                    ))}
+                  </div>
+                </>
+              )}
             </div>
           ))}
         </div>

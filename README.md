@@ -2,7 +2,7 @@
 
 [한국어 README](README.ko.md) · [Data compendium](docs/game-data/README.ko.md) · [Patch notes](PATCH_NOTES.md)
 
-Current version: `v1.0.3`
+Current version: `v1.0.4`
 
 An original single-player PvE auto-battler. Draft units, build origin/class synergies, manage a finite unit pool, forge items, and survive 100 escalating rounds. Fully client-side (Vite + React + TypeScript), deterministic seeded RNG, state persisted to `localStorage`.
 

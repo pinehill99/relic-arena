@@ -1,6 +1,7 @@
 import React from "react";
-import type { UnitDef, ItemDef, TraitName } from "../types";
+import type { UnitDef, ItemDef, TraitName, BoardSummonTier } from "../types";
 import { hashString } from "../engine/rng";
+import { engineerTurretStats } from "../engine/turrets";
 import { TRAIT_GLYPH, TIER_COLORS } from "../data/traits";
 import { COST_COLORS } from "../data/balance";
 
@@ -119,6 +120,34 @@ export function UnitIcon({ def, size = 44, star = 1 }: { def: UnitDef; size?: nu
           {"★".repeat(star)}
         </text>
       )}
+    </svg>
+  );
+}
+
+export function TurretIcon({ tier = 0, size = 44 }: { tier?: BoardSummonTier; size?: number }) {
+  const def = engineerTurretStats(tier);
+  const barrelY = tier === 0 ? 21 : tier === 1 ? 19 : 17;
+  return (
+    <svg width={size} height={size} viewBox="0 0 48 48" aria-label={def.name}>
+      <rect x="1" y="1" width="46" height="46" rx="8" fill="#0b1220" stroke={def.frame} strokeWidth="3" />
+      <path d="M14 34h20l4 8H10z" fill={def.armor} />
+      <rect x="15" y="20" width="18" height="15" rx="4" fill="#1e293b" stroke={def.accent} strokeWidth="2" />
+      <circle cx="24" cy="27" r="5" fill={def.accent} opacity="0.85" />
+      {tier === 0 && <rect x="22" y="10" width="4" height="13" rx="2" fill="#e2e8f0" />}
+      {tier === 1 && (
+        <g fill="#e2e8f0">
+          <rect x="17" y="9" width="4" height="14" rx="2" />
+          <rect x="27" y="9" width="4" height="14" rx="2" />
+        </g>
+      )}
+      {tier === 2 && (
+        <g>
+          <rect x="20" y="6" width="8" height="20" rx="3" fill="#f8fafc" />
+          <path d="M14 16h20" stroke={def.frame} strokeWidth="3" strokeLinecap="round" />
+        </g>
+      )}
+      <path d={`M12 ${barrelY + 9}h24`} stroke={def.frame} strokeWidth="2" strokeLinecap="round" opacity="0.8" />
+      <path d="M18 42h12" stroke={def.accent} strokeWidth="2" strokeLinecap="round" />
     </svg>
   );
 }

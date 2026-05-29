@@ -5,6 +5,7 @@ import { initPool, returnToPool } from "./engine/pool";
 import { rollShop } from "./engine/shop";
 import { tryUpgrade, newIid } from "./engine/upgrades";
 import { gainXP, sellValue } from "./engine/economy";
+import { boardUnitCount, isEngineerTurret, reconcileEngineerTurrets } from "./engine/turrets";
 import { combineBasics, combineTier1, getItem, TIER1_BY_ID } from "./data/items";
 import { UNIT_BY_ID } from "./data/units";
 import {
@@ -67,7 +68,7 @@ export function logMsg(state: GameState, msg: string): void {
 
 // ---- Board/bench helpers ----
 export function boardCount(state: GameState): number {
-  return state.board.length;
+  return boardUnitCount(state.board);
 }
 
 export function benchFull(state: GameState): boolean {
@@ -116,12 +117,14 @@ export function buyUnit(state: GameState, slot: number): boolean {
   state.bench.push(inst);
   logMsg(state, `Bought ${def.name}.`);
   tryUpgrade(state, defId);
+  reconcileEngineerTurrets(state);
   return true;
 }
 
 export function sellUnit(state: GameState, iid: string): boolean {
   const inst = findUnit(state, iid);
   if (!inst) return false;
+  if (isEngineerTurret(inst)) return false;
   const value = sellValue(inst);
   state.gold += value;
   // return items to inventory
@@ -131,6 +134,7 @@ export function sellUnit(state: GameState, iid: string): boolean {
   returnToPool(state.pool, inst.defId, copies);
   state.board = state.board.filter((u) => u.iid !== iid);
   state.bench = state.bench.filter((u) => u.iid !== iid);
+  reconcileEngineerTurrets(state);
   logMsg(state, `Sold ${UNIT_BY_ID[inst.defId].name} for ${value}g.`);
   return true;
 }
@@ -155,6 +159,7 @@ export function placeOnBoard(state: GameState, iid: string, row: number, col: nu
   if (occupant && occupant.iid !== iid) {
     // swap
     if (movingFromBench) {
+      if (isEngineerTurret(occupant)) return false;
       // bench<->board swap: occupant goes to bench, inst to board
       if (state.bench.length >= BENCH_SLOTS) return false;
       occupant.loc = "bench";
@@ -176,12 +181,13 @@ export function placeOnBoard(state: GameState, iid: string, row: number, col: nu
       inst.row = row;
       inst.col = col;
     }
+    reconcileEngineerTurrets(state);
     return true;
   }
 
   // empty target
   if (movingFromBench) {
-    if (boardCount(state) >= state.level) return false; // board cap = level
+    if (!isEngineerTurret(inst) && boardCount(state) >= state.level) return false; // board cap = level
     state.bench = state.bench.filter((u) => u.iid !== iid);
     inst.loc = "board";
     inst.row = row;
@@ -191,18 +197,21 @@ export function placeOnBoard(state: GameState, iid: string, row: number, col: nu
     inst.row = row;
     inst.col = col;
   }
+  reconcileEngineerTurrets(state);
   return true;
 }
 
 export function moveToBench(state: GameState, iid: string): boolean {
   const inst = state.board.find((u) => u.iid === iid);
   if (!inst) return false;
+  if (isEngineerTurret(inst)) return false;
   if (state.bench.length >= BENCH_SLOTS) return false;
   state.board = state.board.filter((u) => u.iid !== iid);
   inst.loc = "bench";
   inst.row = undefined;
   inst.col = undefined;
   state.bench.push(inst);
+  reconcileEngineerTurrets(state);
   return true;
 }
 
@@ -210,6 +219,7 @@ export function moveToBench(state: GameState, iid: string): boolean {
 export function equipItem(state: GameState, iid: string, itemId: string): boolean {
   const inst = findUnit(state, iid);
   if (!inst) return false;
+  if (isEngineerTurret(inst)) return false;
   if (!state.inventory.includes(itemId)) return false;
   if (inst.items.length >= MAX_ITEMS_PER_UNIT) return false;
 
@@ -256,6 +266,7 @@ export function equipItem(state: GameState, iid: string, itemId: string): boolea
 export function unequipItem(state: GameState, iid: string, itemId: string): boolean {
   const inst = findUnit(state, iid);
   if (!inst) return false;
+  if (isEngineerTurret(inst)) return false;
   const idx = inst.items.indexOf(itemId);
   if (idx < 0) return false;
   inst.items.splice(idx, 1);
@@ -344,6 +355,7 @@ export function applyRoundResult(state: GameState, won: boolean, survivingEnemie
   const rng2 = withRng(state);
   state.shop = rollShop(state.level, state.pool, rng2);
   commitRng(state, rng2);
+  reconcileEngineerTurrets(state);
 }
 
 // ---- Persistence ----
@@ -361,6 +373,7 @@ export function loadState(): GameState | null {
     if (!raw) return null;
     const parsed = JSON.parse(raw) as GameState;
     if (!parsed || typeof parsed.round !== "number") return null;
+    if (parsed.phase === "prep") reconcileEngineerTurrets(parsed);
     return parsed;
   } catch {
     return null;
