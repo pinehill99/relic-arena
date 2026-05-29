@@ -1,145 +1,146 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1084" height="628" viewBox="0 0 1084 628" role="img" aria-label="Relic Arena Synergies">
+<svg xmlns="http://www.w3.org/2000/svg" width="1084" height="728" viewBox="0 0 1084 728" role="img" aria-label="Relic Arena Synergies">
+  <defs><clipPath id="clip-0"><rect x="24" y="76" width="250" height="116" rx="8"/></clipPath><clipPath id="clip-1"><rect x="286" y="76" width="250" height="116" rx="8"/></clipPath><clipPath id="clip-2"><rect x="548" y="76" width="250" height="116" rx="8"/></clipPath><clipPath id="clip-3"><rect x="810" y="76" width="250" height="116" rx="8"/></clipPath><clipPath id="clip-4"><rect x="24" y="204" width="250" height="116" rx="8"/></clipPath><clipPath id="clip-5"><rect x="286" y="204" width="250" height="116" rx="8"/></clipPath><clipPath id="clip-6"><rect x="548" y="204" width="250" height="116" rx="8"/></clipPath><clipPath id="clip-7"><rect x="810" y="204" width="250" height="116" rx="8"/></clipPath><clipPath id="clip-8"><rect x="24" y="332" width="250" height="116" rx="8"/></clipPath><clipPath id="clip-9"><rect x="286" y="332" width="250" height="116" rx="8"/></clipPath><clipPath id="clip-10"><rect x="548" y="332" width="250" height="116" rx="8"/></clipPath><clipPath id="clip-11"><rect x="810" y="332" width="250" height="116" rx="8"/></clipPath><clipPath id="clip-12"><rect x="24" y="460" width="250" height="116" rx="8"/></clipPath><clipPath id="clip-13"><rect x="286" y="460" width="250" height="116" rx="8"/></clipPath><clipPath id="clip-14"><rect x="548" y="460" width="250" height="116" rx="8"/></clipPath><clipPath id="clip-15"><rect x="810" y="460" width="250" height="116" rx="8"/></clipPath><clipPath id="clip-16"><rect x="24" y="588" width="250" height="116" rx="8"/></clipPath><clipPath id="clip-17"><rect x="286" y="588" width="250" height="116" rx="8"/></clipPath><clipPath id="clip-18"><rect x="548" y="588" width="250" height="116" rx="8"/></clipPath><clipPath id="clip-19"><rect x="810" y="588" width="250" height="116" rx="8"/></clipPath></defs>
   <rect width="100%" height="100%" fill="#07111f"/>
-  <rect x="10" y="10" width="1064" height="608" rx="16" fill="#0f172a" stroke="#24324f"/>
+  <rect x="10" y="10" width="1064" height="708" rx="16" fill="#0f172a" stroke="#24324f"/>
   <text x="24" y="42" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="24" fill="#fbbf24" font-weight="800">Relic Arena Synergies</text>
-  <g>
-    <rect x="24" y="76" width="250" height="96" rx="8" fill="#111827" stroke="#38bdf8" stroke-width="2"/>
+  <g clip-path="url(#clip-0)">
+    <rect x="24" y="76" width="250" height="116" rx="8" fill="#111827" stroke="#38bdf8" stroke-width="2"/>
     <g transform="translate(38 92) scale(1.75)" style="color:#38bdf8"><path d="M12 2c2 4-1 5 1 8 1.5 2 0 4-1 5 3-.5 5-3 5-6 0-4-3-5-5-7z" fill="currentColor"/></g>
     <text x="94" y="101" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" fill="#f8fafc" font-weight="800">Ember</text>
     <text x="94" y="121" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1" font-weight="500">origin · 2 / 4 / 6</text>
-    <text x="40" y="152" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#dbeafe" font-weight="500">Team attacks burn enemies for 3%/6%/10% of max HP over 4s. At 6, burn ca...</text>
+    <text x="40" y="148" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#dbeafe" font-weight="500">Team attacks burn enemies for 3%/6%/10%<tspan x="40" dy="13">of max HP over 4s. At 6, burn can spread</tspan><tspan x="40" dy="13">once to a nearby enemy.</tspan></text>
   </g>
-<g>
-    <rect x="286" y="76" width="250" height="96" rx="8" fill="#111827" stroke="#38bdf8" stroke-width="2"/>
+<g clip-path="url(#clip-1)">
+    <rect x="286" y="76" width="250" height="116" rx="8" fill="#111827" stroke="#38bdf8" stroke-width="2"/>
     <g transform="translate(300 92) scale(1.75)" style="color:#38bdf8"><g stroke="currentColor" stroke-width="1.5"><line x1="12" y1="3" x2="12" y2="21"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></g></g>
     <text x="356" y="101" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" fill="#f8fafc" font-weight="800">Frost</text>
     <text x="356" y="121" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1" font-weight="500">origin · 2 / 4 / 6</text>
-    <text x="302" y="152" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#dbeafe" font-weight="500">Enemies damaged by Frost units lose 12%/22%/35% attack speed for 3s. At ...</text>
+    <text x="302" y="148" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#dbeafe" font-weight="500">Enemies damaged by Frost units lose<tspan x="302" dy="13">12%/22%/35% attack speed for 3s. At 6,</tspan><tspan x="302" dy="13">each Frost unit's first spell freezes fo…</tspan></text>
   </g>
-<g>
-    <rect x="548" y="76" width="250" height="96" rx="8" fill="#111827" stroke="#38bdf8" stroke-width="2"/>
+<g clip-path="url(#clip-2)">
+    <rect x="548" y="76" width="250" height="116" rx="8" fill="#111827" stroke="#38bdf8" stroke-width="2"/>
     <g transform="translate(562 92) scale(1.75)" style="color:#38bdf8"><path d="M5 19C5 9 13 5 20 5c0 9-7 14-15 14z" fill="currentColor"/></g>
     <text x="618" y="101" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" fill="#f8fafc" font-weight="800">Verdant</text>
     <text x="618" y="121" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1" font-weight="500">origin · 2 / 4 / 6</text>
-    <text x="564" y="152" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#dbeafe" font-weight="500">Every 5s, Verdant units heal for 3%/6%/10% missing HP. At 6, they also g...</text>
+    <text x="564" y="148" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#dbeafe" font-weight="500">Every 5s, Verdant units heal for<tspan x="564" dy="13">3%/6%/10% missing HP. At 6, they also</tspan><tspan x="564" dy="13">gain 12% max HP.</tspan></text>
   </g>
-<g>
-    <rect x="810" y="76" width="250" height="96" rx="8" fill="#111827" stroke="#38bdf8" stroke-width="2"/>
+<g clip-path="url(#clip-3)">
+    <rect x="810" y="76" width="250" height="116" rx="8" fill="#111827" stroke="#38bdf8" stroke-width="2"/>
     <g transform="translate(824 92) scale(1.75)" style="color:#38bdf8"><path d="M13 2L4 14h6l-2 8 10-13h-7z" fill="currentColor"/></g>
     <text x="880" y="101" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" fill="#f8fafc" font-weight="800">Storm</text>
     <text x="880" y="121" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1" font-weight="500">origin · 2 / 4 / 6</text>
-    <text x="826" y="152" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#dbeafe" font-weight="500">Every 4s, Storm units chain lightning for 70/140/240 magic damage. At 6,...</text>
+    <text x="826" y="148" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#dbeafe" font-weight="500">Every 4s, Storm units chain lightning for<tspan x="826" dy="13">70/140/240 magic damage. At 6, gain 15%</tspan><tspan x="826" dy="13">attack speed.</tspan></text>
   </g>
-<g>
-    <rect x="24" y="184" width="250" height="96" rx="8" fill="#111827" stroke="#38bdf8" stroke-width="2"/>
-    <g transform="translate(38 200) scale(1.75)" style="color:#38bdf8"><path d="M12 2l8 3v6c0 5-4 9-8 11-4-2-8-6-8-11V5z" fill="currentColor"/></g>
-    <text x="94" y="209" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" fill="#f8fafc" font-weight="800">Iron</text>
-    <text x="94" y="229" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1" font-weight="500">origin · 2 / 4 / 6</text>
-    <text x="40" y="260" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#dbeafe" font-weight="500">Iron units gain 20/45/80 armor and magic resist. At 6, reflect 8% post-m...</text>
+<g clip-path="url(#clip-4)">
+    <rect x="24" y="204" width="250" height="116" rx="8" fill="#111827" stroke="#38bdf8" stroke-width="2"/>
+    <g transform="translate(38 220) scale(1.75)" style="color:#38bdf8"><path d="M12 2l8 3v6c0 5-4 9-8 11-4-2-8-6-8-11V5z" fill="currentColor"/></g>
+    <text x="94" y="229" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" fill="#f8fafc" font-weight="800">Iron</text>
+    <text x="94" y="249" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1" font-weight="500">origin · 2 / 4 / 6</text>
+    <text x="40" y="276" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#dbeafe" font-weight="500">Iron units gain 20/45/80 armor and magic<tspan x="40" dy="13">resist. At 6, reflect 8% post-mitigation</tspan><tspan x="40" dy="13">damage.</tspan></text>
   </g>
-<g>
-    <rect x="286" y="184" width="250" height="96" rx="8" fill="#111827" stroke="#38bdf8" stroke-width="2"/>
-    <g transform="translate(300 200) scale(1.75)" style="color:#38bdf8"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3" fill="currentColor"/></g>
-    <text x="356" y="209" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" fill="#f8fafc" font-weight="800">Void</text>
-    <text x="356" y="229" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1" font-weight="500">origin · 2 / 4 / 6</text>
-    <text x="302" y="260" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#dbeafe" font-weight="500">Void units ignore 15%/35%/60% of armor and magic resist. At 6, first spe...</text>
+<g clip-path="url(#clip-5)">
+    <rect x="286" y="204" width="250" height="116" rx="8" fill="#111827" stroke="#38bdf8" stroke-width="2"/>
+    <g transform="translate(300 220) scale(1.75)" style="color:#38bdf8"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3" fill="currentColor"/></g>
+    <text x="356" y="229" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" fill="#f8fafc" font-weight="800">Void</text>
+    <text x="356" y="249" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1" font-weight="500">origin · 2 / 4 / 6</text>
+    <text x="302" y="276" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#dbeafe" font-weight="500">Void units ignore 15%/35%/60% of armor<tspan x="302" dy="13">and magic resist. At 6, first spell also</tspan><tspan x="302" dy="13">drains 20 mana.</tspan></text>
   </g>
-<g>
-    <rect x="548" y="184" width="250" height="96" rx="8" fill="#111827" stroke="#38bdf8" stroke-width="2"/>
-    <g transform="translate(562 200) scale(1.75)" style="color:#38bdf8"><path d="M12 2l3 7 7 .5-5.5 4.5 2 7L12 17l-6.5 4 2-7L2 9.5 9 9z" fill="currentColor"/></g>
-    <text x="618" y="209" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" fill="#f8fafc" font-weight="800">Celestial</text>
-    <text x="618" y="229" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1" font-weight="500">origin · 2 / 4 / 6</text>
-    <text x="564" y="260" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#dbeafe" font-weight="500">Team gains 8%/16%/28% omnivamp. At 6, overhealing becomes a shield up to...</text>
+<g clip-path="url(#clip-6)">
+    <rect x="548" y="204" width="250" height="116" rx="8" fill="#111827" stroke="#38bdf8" stroke-width="2"/>
+    <g transform="translate(562 220) scale(1.75)" style="color:#38bdf8"><path d="M12 2l3 7 7 .5-5.5 4.5 2 7L12 17l-6.5 4 2-7L2 9.5 9 9z" fill="currentColor"/></g>
+    <text x="618" y="229" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" fill="#f8fafc" font-weight="800">Celestial</text>
+    <text x="618" y="249" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1" font-weight="500">origin · 2 / 4 / 6</text>
+    <text x="564" y="276" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#dbeafe" font-weight="500">Team gains 8%/16%/28% omnivamp. At 6,<tspan x="564" dy="13">overhealing becomes a shield up to 20%</tspan><tspan x="564" dy="13">max HP.</tspan></text>
   </g>
-<g>
-    <rect x="810" y="184" width="250" height="96" rx="8" fill="#111827" stroke="#38bdf8" stroke-width="2"/>
-    <g transform="translate(824 200) scale(1.75)" style="color:#38bdf8"><path d="M2 14c3-4 5-4 8 0s5 4 8 0v4c-3 4-5 4-8 0s-5-4-8 0z" fill="currentColor"/></g>
-    <text x="880" y="209" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" fill="#f8fafc" font-weight="800">Tidal</text>
-    <text x="880" y="229" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1" font-weight="500">origin · 2 / 4 / 6</text>
-    <text x="826" y="260" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#dbeafe" font-weight="500">Tidal units gain 3/7/12 mana per attack. At 6, crowd-control duration fr...</text>
+<g clip-path="url(#clip-7)">
+    <rect x="810" y="204" width="250" height="116" rx="8" fill="#111827" stroke="#38bdf8" stroke-width="2"/>
+    <g transform="translate(824 220) scale(1.75)" style="color:#38bdf8"><path d="M2 14c3-4 5-4 8 0s5 4 8 0v4c-3 4-5 4-8 0s-5-4-8 0z" fill="currentColor"/></g>
+    <text x="880" y="229" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" fill="#f8fafc" font-weight="800">Tidal</text>
+    <text x="880" y="249" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1" font-weight="500">origin · 2 / 4 / 6</text>
+    <text x="826" y="276" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#dbeafe" font-weight="500">Tidal units gain 3/7/12 mana per attack.<tspan x="826" dy="13">At 6, crowd-control duration from Tidal</tspan><tspan x="826" dy="13">units increases by 20%.</tspan></text>
   </g>
-<g>
-    <rect x="24" y="292" width="250" height="96" rx="8" fill="#111827" stroke="#38bdf8" stroke-width="2"/>
-    <g transform="translate(38 308) scale(1.75)" style="color:#38bdf8"><path d="M12 2l3 12-3 3-3-3z M9 17h6v2H9z" fill="currentColor"/></g>
-    <text x="94" y="317" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" fill="#f8fafc" font-weight="800">Shadow</text>
-    <text x="94" y="337" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1" font-weight="500">origin · 2 / 4 / 6</text>
-    <text x="40" y="368" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#dbeafe" font-weight="500">Shadow units gain 15%/30%/55% crit chance and execute enemies below 10%/...</text>
+<g clip-path="url(#clip-8)">
+    <rect x="24" y="332" width="250" height="116" rx="8" fill="#111827" stroke="#38bdf8" stroke-width="2"/>
+    <g transform="translate(38 348) scale(1.75)" style="color:#38bdf8"><path d="M12 2l3 12-3 3-3-3z M9 17h6v2H9z" fill="currentColor"/></g>
+    <text x="94" y="357" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" fill="#f8fafc" font-weight="800">Shadow</text>
+    <text x="94" y="377" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1" font-weight="500">origin · 2 / 4 / 6</text>
+    <text x="40" y="404" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#dbeafe" font-weight="500">Shadow units gain 15%/30%/55% crit chance<tspan x="40" dy="13">and execute enemies below 10%/16%/25% HP.</tspan></text>
   </g>
-<g>
-    <rect x="286" y="292" width="250" height="96" rx="8" fill="#111827" stroke="#38bdf8" stroke-width="2"/>
-    <g transform="translate(300 308) scale(1.75)" style="color:#38bdf8"><g stroke="currentColor" stroke-width="1.6" fill="none"><polygon points="12,3 20,8 17,19 7,19 4,8"/><line x1="12" y1="3" x2="12" y2="19"/></g></g>
-    <text x="356" y="317" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" fill="#f8fafc" font-weight="800">Arcane</text>
-    <text x="356" y="337" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1" font-weight="500">origin · 2 / 4 / 6</text>
-    <text x="302" y="368" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#dbeafe" font-weight="500">Arcane units gain 15/35/65 spell power. At 6, first spell is repeated at...</text>
+<g clip-path="url(#clip-9)">
+    <rect x="286" y="332" width="250" height="116" rx="8" fill="#111827" stroke="#38bdf8" stroke-width="2"/>
+    <g transform="translate(300 348) scale(1.75)" style="color:#38bdf8"><g stroke="currentColor" stroke-width="1.6" fill="none"><polygon points="12,3 20,8 17,19 7,19 4,8"/><line x1="12" y1="3" x2="12" y2="19"/></g></g>
+    <text x="356" y="357" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" fill="#f8fafc" font-weight="800">Arcane</text>
+    <text x="356" y="377" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1" font-weight="500">origin · 2 / 4 / 6</text>
+    <text x="302" y="404" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#dbeafe" font-weight="500">Arcane units gain 15/35/65 spell power.<tspan x="302" dy="13">At 6, first spell is repeated at 40%</tspan><tspan x="302" dy="13">power.</tspan></text>
   </g>
-<g>
-    <rect x="548" y="292" width="250" height="96" rx="8" fill="#111827" stroke="#a78bfa" stroke-width="2"/>
-    <g transform="translate(562 308) scale(1.75)" style="color:#a78bfa"><path d="M6 3h12v4h-3v3h3v11H6V10h3V7H6z" fill="currentColor"/></g>
-    <text x="618" y="317" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" fill="#f8fafc" font-weight="800">Vanguard</text>
-    <text x="618" y="337" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1" font-weight="500">class · 2 / 4 / 6 / 8</text>
-    <text x="564" y="368" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#dbeafe" font-weight="500">Vanguards gain 150/350/700/1100 HP and 10/25/45/70 armor.</text>
+<g clip-path="url(#clip-10)">
+    <rect x="548" y="332" width="250" height="116" rx="8" fill="#111827" stroke="#a78bfa" stroke-width="2"/>
+    <g transform="translate(562 348) scale(1.75)" style="color:#a78bfa"><path d="M6 3h12v4h-3v3h3v11H6V10h3V7H6z" fill="currentColor"/></g>
+    <text x="618" y="357" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" fill="#f8fafc" font-weight="800">Vanguard</text>
+    <text x="618" y="377" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1" font-weight="500">class · 2 / 4 / 6 / 8</text>
+    <text x="564" y="404" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#dbeafe" font-weight="500">Vanguards gain 150/350/700/1100 HP and<tspan x="564" dy="13">10/25/45/70 armor.</tspan></text>
   </g>
-<g>
-    <rect x="810" y="292" width="250" height="96" rx="8" fill="#111827" stroke="#a78bfa" stroke-width="2"/>
-    <g transform="translate(824 308) scale(1.75)" style="color:#a78bfa"><g stroke="currentColor" stroke-width="2"><line x1="4" y1="20" x2="18" y2="6"/><line x1="20" y1="20" x2="6" y2="6"/></g></g>
-    <text x="880" y="317" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" fill="#f8fafc" font-weight="800">Duelist</text>
-    <text x="880" y="337" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1" font-weight="500">class · 2 / 4 / 6 / 8</text>
-    <text x="826" y="368" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#dbeafe" font-weight="500">Duelists gain 8% attack speed per attack, stacking up to 4/6/8/10 times.</text>
+<g clip-path="url(#clip-11)">
+    <rect x="810" y="332" width="250" height="116" rx="8" fill="#111827" stroke="#a78bfa" stroke-width="2"/>
+    <g transform="translate(824 348) scale(1.75)" style="color:#a78bfa"><g stroke="currentColor" stroke-width="2"><line x1="4" y1="20" x2="18" y2="6"/><line x1="20" y1="20" x2="6" y2="6"/></g></g>
+    <text x="880" y="357" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" fill="#f8fafc" font-weight="800">Duelist</text>
+    <text x="880" y="377" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1" font-weight="500">class · 2 / 4 / 6 / 8</text>
+    <text x="826" y="404" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#dbeafe" font-weight="500">Duelists gain 8% attack speed per attack,<tspan x="826" dy="13">stacking up to 4/6/8/10 times.</tspan></text>
   </g>
-<g>
-    <rect x="24" y="400" width="250" height="96" rx="8" fill="#111827" stroke="#a78bfa" stroke-width="2"/>
-    <g transform="translate(38 416) scale(1.75)" style="color:#a78bfa"><path d="M3 21L21 3M21 3h-7M21 3v7" fill="none" stroke="currentColor" stroke-width="2"/></g>
-    <text x="94" y="425" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" fill="#f8fafc" font-weight="800">Ranger</text>
-    <text x="94" y="445" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1" font-weight="500">class · 2 / 4 / 6</text>
-    <text x="40" y="476" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#dbeafe" font-weight="500">Rangers gain +1 attack range and 15%/35%/65% attack damage every 5s for ...</text>
+<g clip-path="url(#clip-12)">
+    <rect x="24" y="460" width="250" height="116" rx="8" fill="#111827" stroke="#a78bfa" stroke-width="2"/>
+    <g transform="translate(38 476) scale(1.75)" style="color:#a78bfa"><path d="M3 21L21 3M21 3h-7M21 3v7" fill="none" stroke="currentColor" stroke-width="2"/></g>
+    <text x="94" y="485" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" fill="#f8fafc" font-weight="800">Ranger</text>
+    <text x="94" y="505" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1" font-weight="500">class · 2 / 4 / 6</text>
+    <text x="40" y="532" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#dbeafe" font-weight="500">Rangers gain +1 attack range and<tspan x="40" dy="13">15%/35%/65% attack damage every 5s for</tspan><tspan x="40" dy="13">3s.</tspan></text>
   </g>
-<g>
-    <rect x="286" y="400" width="250" height="96" rx="8" fill="#111827" stroke="#a78bfa" stroke-width="2"/>
-    <g transform="translate(300 416) scale(1.75)" style="color:#a78bfa"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/></g>
-    <text x="356" y="425" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" fill="#f8fafc" font-weight="800">Mage</text>
-    <text x="356" y="445" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1" font-weight="500">class · 2 / 4 / 6 / 8</text>
-    <text x="302" y="476" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#dbeafe" font-weight="500">Mages gain 20/45/80/125 spell power and 10%/20%/35%/50% chance to echo a...</text>
+<g clip-path="url(#clip-13)">
+    <rect x="286" y="460" width="250" height="116" rx="8" fill="#111827" stroke="#a78bfa" stroke-width="2"/>
+    <g transform="translate(300 476) scale(1.75)" style="color:#a78bfa"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/></g>
+    <text x="356" y="485" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" fill="#f8fafc" font-weight="800">Mage</text>
+    <text x="356" y="505" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1" font-weight="500">class · 2 / 4 / 6 / 8</text>
+    <text x="302" y="532" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#dbeafe" font-weight="500">Mages gain 20/45/80/125 spell power and<tspan x="302" dy="13">10%/20%/35%/50% chance to echo a spell at</tspan><tspan x="302" dy="13">35% power.</tspan></text>
   </g>
-<g>
-    <rect x="548" y="400" width="250" height="96" rx="8" fill="#111827" stroke="#a78bfa" stroke-width="2"/>
-    <g transform="translate(562 416) scale(1.75)" style="color:#a78bfa"><path d="M6 4c4 6 8 6 12 0-2 10-4 16-6 16S8 14 6 4z" fill="currentColor"/></g>
-    <text x="618" y="425" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" fill="#f8fafc" font-weight="800">Assassin</text>
-    <text x="618" y="445" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1" font-weight="500">class · 2 / 4 / 6</text>
-    <text x="564" y="476" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#dbeafe" font-weight="500">Assassins leap toward the enemy backline at combat start and gain 20%/40...</text>
+<g clip-path="url(#clip-14)">
+    <rect x="548" y="460" width="250" height="116" rx="8" fill="#111827" stroke="#a78bfa" stroke-width="2"/>
+    <g transform="translate(562 476) scale(1.75)" style="color:#a78bfa"><path d="M6 4c4 6 8 6 12 0-2 10-4 16-6 16S8 14 6 4z" fill="currentColor"/></g>
+    <text x="618" y="485" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" fill="#f8fafc" font-weight="800">Assassin</text>
+    <text x="618" y="505" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1" font-weight="500">class · 2 / 4 / 6</text>
+    <text x="564" y="532" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#dbeafe" font-weight="500">Assassins leap toward the enemy backline<tspan x="564" dy="13">at combat start and gain 20%/40%/75% crit</tspan><tspan x="564" dy="13">damage.</tspan></text>
   </g>
-<g>
-    <rect x="810" y="400" width="250" height="96" rx="8" fill="#111827" stroke="#a78bfa" stroke-width="2"/>
-    <g transform="translate(824 416) scale(1.75)" style="color:#a78bfa"><path d="M10 3h4v7h7v4h-7v7h-4v-7H3v-4h7z" fill="currentColor"/></g>
-    <text x="880" y="425" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" fill="#f8fafc" font-weight="800">Cleric</text>
-    <text x="880" y="445" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1" font-weight="500">class · 2 / 4 / 6</text>
-    <text x="826" y="476" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#dbeafe" font-weight="500">Clerics heal the lowest-HP ally for 5%/9%/14% max HP every 6s.</text>
+<g clip-path="url(#clip-15)">
+    <rect x="810" y="460" width="250" height="116" rx="8" fill="#111827" stroke="#a78bfa" stroke-width="2"/>
+    <g transform="translate(824 476) scale(1.75)" style="color:#a78bfa"><path d="M10 3h4v7h7v4h-7v7h-4v-7H3v-4h7z" fill="currentColor"/></g>
+    <text x="880" y="485" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" fill="#f8fafc" font-weight="800">Cleric</text>
+    <text x="880" y="505" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1" font-weight="500">class · 2 / 4 / 6</text>
+    <text x="826" y="532" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#dbeafe" font-weight="500">Clerics heal the lowest-HP ally for<tspan x="826" dy="13">5%/9%/14% max HP every 6s.</tspan></text>
   </g>
-<g>
-    <rect x="24" y="508" width="250" height="96" rx="8" fill="#111827" stroke="#a78bfa" stroke-width="2"/>
-    <g transform="translate(38 524) scale(1.75)" style="color:#a78bfa"><circle cx="12" cy="12" r="4" fill="currentColor"/><path d="M12 1l2 3h-4zM12 23l-2-3h4zM1 12l3-2v4zM23 12l-3 2v-4z" fill="currentColor"/></g>
-    <text x="94" y="533" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" fill="#f8fafc" font-weight="800">Engineer</text>
-    <text x="94" y="553" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1" font-weight="500">class · 2 / 4 / 6</text>
-    <text x="40" y="584" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#dbeafe" font-weight="500">Engineers deploy 1/2/3 turrets. Turrets inherit 20%/30%/45% of average a...</text>
+<g clip-path="url(#clip-16)">
+    <rect x="24" y="588" width="250" height="116" rx="8" fill="#111827" stroke="#a78bfa" stroke-width="2"/>
+    <g transform="translate(38 604) scale(1.75)" style="color:#a78bfa"><circle cx="12" cy="12" r="4" fill="currentColor"/><path d="M12 1l2 3h-4zM12 23l-2-3h4zM1 12l3-2v4zM23 12l-3 2v-4z" fill="currentColor"/></g>
+    <text x="94" y="613" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" fill="#f8fafc" font-weight="800">Engineer</text>
+    <text x="94" y="633" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1" font-weight="500">class · 2 / 4 / 6</text>
+    <text x="40" y="660" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#dbeafe" font-weight="500">Engineers deploy 1/2/3 turrets. Turrets<tspan x="40" dy="13">inherit 20%/30%/45% of average allied AD.</tspan></text>
   </g>
-<g>
-    <rect x="286" y="508" width="250" height="96" rx="8" fill="#111827" stroke="#a78bfa" stroke-width="2"/>
-    <g transform="translate(300 524) scale(1.75)" style="color:#a78bfa"><ellipse cx="12" cy="12" rx="5" ry="9" fill="none" stroke="currentColor" stroke-width="2"/></g>
-    <text x="356" y="533" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" fill="#f8fafc" font-weight="800">Summoner</text>
-    <text x="356" y="553" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1" font-weight="500">class · 2 / 4 / 6</text>
-    <text x="302" y="584" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#dbeafe" font-weight="500">Summoned units gain 25%/60%/110% HP and damage.</text>
+<g clip-path="url(#clip-17)">
+    <rect x="286" y="588" width="250" height="116" rx="8" fill="#111827" stroke="#a78bfa" stroke-width="2"/>
+    <g transform="translate(300 604) scale(1.75)" style="color:#a78bfa"><ellipse cx="12" cy="12" rx="5" ry="9" fill="none" stroke="currentColor" stroke-width="2"/></g>
+    <text x="356" y="613" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" fill="#f8fafc" font-weight="800">Summoner</text>
+    <text x="356" y="633" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1" font-weight="500">class · 2 / 4 / 6</text>
+    <text x="302" y="660" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#dbeafe" font-weight="500">Summoned units gain 25%/60%/110% HP and<tspan x="302" dy="13">damage.</tspan></text>
   </g>
-<g>
-    <rect x="548" y="508" width="250" height="96" rx="8" fill="#111827" stroke="#a78bfa" stroke-width="2"/>
-    <g transform="translate(562 524) scale(1.75)" style="color:#a78bfa"><path d="M12 2l9 4v6c0 6-5 9-9 10-4-1-9-4-9-10V6z M12 7v9" fill="none" stroke="currentColor" stroke-width="2"/></g>
-    <text x="618" y="533" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" fill="#f8fafc" font-weight="800">Guardian</text>
-    <text x="618" y="553" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1" font-weight="500">class · 2 / 4 / 6</text>
-    <text x="564" y="584" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#dbeafe" font-weight="500">At combat start, Guardians shield themselves and adjacent allies for 180...</text>
+<g clip-path="url(#clip-18)">
+    <rect x="548" y="588" width="250" height="116" rx="8" fill="#111827" stroke="#a78bfa" stroke-width="2"/>
+    <g transform="translate(562 604) scale(1.75)" style="color:#a78bfa"><path d="M12 2l9 4v6c0 6-5 9-9 10-4-1-9-4-9-10V6z M12 7v9" fill="none" stroke="currentColor" stroke-width="2"/></g>
+    <text x="618" y="613" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" fill="#f8fafc" font-weight="800">Guardian</text>
+    <text x="618" y="633" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1" font-weight="500">class · 2 / 4 / 6</text>
+    <text x="564" y="660" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#dbeafe" font-weight="500">At combat start, Guardians shield<tspan x="564" dy="13">themselves and adjacent allies for</tspan><tspan x="564" dy="13">180/420/800.</tspan></text>
   </g>
-<g>
-    <rect x="810" y="508" width="250" height="96" rx="8" fill="#111827" stroke="#a78bfa" stroke-width="2"/>
-    <g transform="translate(824 524) scale(1.75)" style="color:#a78bfa"><circle cx="12" cy="10" r="7" fill="currentColor"/><rect x="8" y="16" width="8" height="4" rx="1" fill="currentColor"/></g>
-    <text x="880" y="533" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" fill="#f8fafc" font-weight="800">Warlock</text>
-    <text x="880" y="553" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1" font-weight="500">class · 2 / 4 / 6</text>
-    <text x="826" y="584" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#dbeafe" font-weight="500">Warlocks gain 12%/25%/45% spell vamp. Their damage-over-time effects tic...</text>
+<g clip-path="url(#clip-19)">
+    <rect x="810" y="588" width="250" height="116" rx="8" fill="#111827" stroke="#a78bfa" stroke-width="2"/>
+    <g transform="translate(824 604) scale(1.75)" style="color:#a78bfa"><circle cx="12" cy="10" r="7" fill="currentColor"/><rect x="8" y="16" width="8" height="4" rx="1" fill="currentColor"/></g>
+    <text x="880" y="613" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" fill="#f8fafc" font-weight="800">Warlock</text>
+    <text x="880" y="633" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1" font-weight="500">class · 2 / 4 / 6</text>
+    <text x="826" y="660" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#dbeafe" font-weight="500">Warlocks gain 12%/25%/45% spell vamp.<tspan x="826" dy="13">Their damage-over-time effects tick 1</tspan><tspan x="826" dy="13">extra time at 6.</tspan></text>
   </g>
 </svg>

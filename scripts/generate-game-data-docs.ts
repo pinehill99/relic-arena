@@ -142,11 +142,70 @@ function text(x: number, y: number, value: string, size = 12, fill = "#dbeafe", 
   return `<text x="${x}" y="${y}" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="${size}" fill="${fill}" font-weight="${weight}">${esc(value)}</text>`;
 }
 
+function estimateCharWidth(fontSize: number, weight = "500"): number {
+  const weightScale = weight === "800" || weight === "700" ? 1.06 : 1;
+  return fontSize * 0.52 * weightScale;
+}
+
+function wrapText(text: string, maxWidth: number, fontSize: number, weight = "500"): string[] {
+  const maxChars = Math.max(8, Math.floor(maxWidth / estimateCharWidth(fontSize, weight)));
+  const words = text.split(/\s+/).filter(Boolean);
+  const lines: string[] = [];
+  let current = "";
+  for (const word of words) {
+    const next = current ? `${current} ${word}` : word;
+    if (next.length <= maxChars) {
+      current = next;
+      continue;
+    }
+    if (current) lines.push(current);
+    current = word.length > maxChars ? `${word.slice(0, maxChars - 1)}…` : word;
+  }
+  if (current) lines.push(current);
+  return lines.length ? lines : [""];
+}
+
+function multilineText(
+  x: number,
+  y: number,
+  value: string,
+  options: {
+    maxWidth: number;
+    fontSize: number;
+    fill?: string;
+    weight?: string;
+    maxLines?: number;
+    lineHeight?: number;
+  }
+): string {
+  const {
+    maxWidth,
+    fontSize,
+    fill = "#dbeafe",
+    weight = "500",
+    maxLines = 2,
+    lineHeight = fontSize + 4,
+  } = options;
+  let lines = wrapText(value, maxWidth, fontSize, weight);
+  if (lines.length > maxLines) {
+    lines = lines.slice(0, maxLines);
+    const last = lines[maxLines - 1] ?? "";
+    lines[maxLines - 1] = last.length > 1 ? `${last.slice(0, Math.max(1, last.length - 1))}…` : last;
+  }
+  const [first, ...rest] = lines;
+  const tspans = rest.map((line) => `<tspan x="${x}" dy="${lineHeight}">${esc(line)}</tspan>`).join("");
+  return `<text x="${x}" y="${y}" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="${fontSize}" fill="${fill}" font-weight="${weight}">${esc(first ?? "")}${tspans}</text>`;
+}
+
+function clipPath(id: string, x: number, y: number, width: number, height: number): string {
+  return `<clipPath id="${id}"><rect x="${x}" y="${y}" width="${width}" height="${height}" rx="8"/></clipPath>`;
+}
+
 function sheet<T>(
   title: string,
   entries: T[],
   options: { columns: number; cardWidth: number; cardHeight: number },
-  render: (entry: T, x: number, y: number) => string
+  render: (entry: T, x: number, y: number, clipId: string) => string
 ): string {
   const gap = 12;
   const pad = 24;
@@ -154,15 +213,19 @@ function sheet<T>(
   const rows = Math.ceil(entries.length / options.columns);
   const width = pad * 2 + options.columns * options.cardWidth + (options.columns - 1) * gap;
   const height = pad * 2 + titleH + rows * options.cardHeight + Math.max(0, rows - 1) * gap;
+  const clips: string[] = [];
   const cards = entries.map((entry, index) => {
     const col = index % options.columns;
     const row = Math.floor(index / options.columns);
     const x = pad + col * (options.cardWidth + gap);
     const y = pad + titleH + row * (options.cardHeight + gap);
-    return render(entry, x, y);
+    const clipId = `clip-${index}`;
+    clips.push(clipPath(clipId, x, y, options.cardWidth, options.cardHeight));
+    return render(entry, x, y, clipId);
   }).join("\n");
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(title)}">
+  <defs>${clips.join("")}</defs>
   <rect width="100%" height="100%" fill="#07111f"/>
   <rect x="10" y="10" width="${width - 20}" height="${height - 20}" rx="16" fill="#0f172a" stroke="#24324f"/>
   ${text(pad, 42, title, 24, "#fbbf24", "800")}
@@ -171,37 +234,50 @@ function sheet<T>(
 `;
 }
 
-function unitCard(unit: UnitDef, x: number, y: number): string {
-  return `<g>
-    <rect x="${x}" y="${y}" width="210" height="84" rx="8" fill="#111827" stroke="${unit.costColor}" stroke-width="2"/>
-    ${unitIcon(unit, x + 10, y + 18, 48)}
-    ${text(x + 68, y + 24, `#${unit.id} ${unit.name}`, 12, "#f8fafc", "800")}
-    ${text(x + 68, y + 42, `${costLabel(unit.cost)} · ${unit.origin} / ${unit.classes.join(", ")}`, 10, "#cbd5e1")}
-    ${text(x + 68, y + 58, `HP ${unit.hp} · AD ${unit.attackDamage} · Mana ${unit.mana} · R ${unit.range}`, 10, "#93c5fd")}
-    ${text(x + 68, y + 74, unit.skillName, 10, "#fef3c7", "700")}
+function unitCard(unit: UnitDef, x: number, y: number, clipId: string): string {
+  const textX = x + 68;
+  const textW = 210 - 68 - 10;
+  return `<g clip-path="url(#${clipId})">
+    <rect x="${x}" y="${y}" width="210" height="96" rx="8" fill="#111827" stroke="${unit.costColor}" stroke-width="2"/>
+    ${unitIcon(unit, x + 10, y + 22, 48)}
+    ${multilineText(textX, y + 26, `#${unit.id} ${unit.name}`, { maxWidth: textW, fontSize: 12, fill: "#f8fafc", weight: "800", maxLines: 1 })}
+    ${multilineText(textX, y + 44, `${costLabel(unit.cost)} · ${unit.origin} / ${unit.classes.join(", ")}`, { maxWidth: textW, fontSize: 10, fill: "#cbd5e1", maxLines: 2, lineHeight: 13 })}
+    ${multilineText(textX, y + 80, `HP ${unit.hp} · AD ${unit.attackDamage} · Mana ${unit.mana} · R ${unit.range}`, { maxWidth: textW, fontSize: 10, fill: "#93c5fd", maxLines: 2, lineHeight: 13 })}
+    ${multilineText(textX, y + 92, unit.skillName, { maxWidth: textW, fontSize: 10, fill: "#fef3c7", weight: "700", maxLines: 1 })}
   </g>`;
 }
 
-function traitCard(trait: (typeof ALL_TRAITS)[number], x: number, y: number): string {
+function traitCard(trait: (typeof ALL_TRAITS)[number], x: number, y: number, clipId: string): string {
   const color = trait.kind === "origin" ? "#38bdf8" : "#a78bfa";
-  return `<g>
-    <rect x="${x}" y="${y}" width="250" height="96" rx="8" fill="#111827" stroke="${color}" stroke-width="2"/>
+  const textW = 250 - 32;
+  return `<g clip-path="url(#${clipId})">
+    <rect x="${x}" y="${y}" width="250" height="116" rx="8" fill="#111827" stroke="${color}" stroke-width="2"/>
     ${traitGlyph(trait.name, x + 14, y + 16, 42, color)}
     ${text(x + 70, y + 25, trait.name, 14, "#f8fafc", "800")}
     ${text(x + 70, y + 45, `${trait.kind} · ${trait.thresholds.join(" / ")}`, 11, "#cbd5e1")}
-    ${text(x + 16, y + 76, trait.description.slice(0, 72) + (trait.description.length > 72 ? "..." : ""), 10, "#dbeafe")}
+    ${multilineText(x + 16, y + 72, trait.description, { maxWidth: textW, fontSize: 10, fill: "#dbeafe", maxLines: 3, lineHeight: 13 })}
   </g>`;
 }
 
-function itemCard(item: ItemDef, x: number, y: number): string {
+function recipeText(item: ItemDef): string {
+  if (!item.recipe?.length) return "";
+  return item.recipe.map((id) => getItem(id)?.name ?? id).join(" + ");
+}
+
+function itemCard(item: ItemDef, x: number, y: number, clipId: string): string {
   const tier = item.tier === "basic" ? "Basic" : `Tier ${item.tier}`;
   const effect = effectText(item);
-  return `<g>
-    <rect x="${x}" y="${y}" width="250" height="82" rx="8" fill="#111827" stroke="${item.background}" stroke-width="2"/>
-    ${itemIcon(item, x + 12, y + 17, 42)}
-    ${text(x + 66, y + 24, item.name, 12, "#f8fafc", "800")}
-    ${text(x + 66, y + 42, `${tier} · ${statText(item.stats) || "effect item"}`, 10, "#cbd5e1")}
-    ${text(x + 66, y + 61, effect.slice(0, 62) + (effect.length > 62 ? "..." : ""), 9, "#fde68a")}
+  const recipe = recipeText(item);
+  const textX = x + 66;
+  const textW = 250 - 66 - 12;
+  const effectY = recipe ? y + 88 : y + 76;
+  return `<g clip-path="url(#${clipId})">
+    <rect x="${x}" y="${y}" width="250" height="106" rx="8" fill="#111827" stroke="${item.background}" stroke-width="2"/>
+    ${itemIcon(item, x + 12, y + 20, 42)}
+    ${multilineText(textX, y + 26, item.name, { maxWidth: textW, fontSize: 12, fill: "#f8fafc", weight: "800", maxLines: 1 })}
+    ${multilineText(textX, y + 44, `${tier} · ${statText(item.stats) || "effect item"}`, { maxWidth: textW, fontSize: 10, fill: "#cbd5e1", maxLines: 2, lineHeight: 13 })}
+    ${recipe ? multilineText(textX, y + 68, recipe, { maxWidth: textW, fontSize: 9, fill: "#a5b4fc", maxLines: 2, lineHeight: 12 }) : ""}
+    ${multilineText(textX, effectY, effect, { maxWidth: textW, fontSize: 9, fill: "#fde68a", maxLines: 2, lineHeight: 12 })}
   </g>`;
 }
 
@@ -302,11 +378,11 @@ ${itemRows(TIER2_ITEMS)}
 
 async function main() {
   await mkdir(SVG_DIR, { recursive: true });
-  await writeFile(join(SVG_DIR, "units.svg"), sheet("Relic Arena Units", UNITS, { columns: 5, cardWidth: 210, cardHeight: 84 }, unitCard));
-  await writeFile(join(SVG_DIR, "traits.svg"), sheet("Relic Arena Synergies", ALL_TRAITS, { columns: 4, cardWidth: 250, cardHeight: 96 }, traitCard));
-  await writeFile(join(SVG_DIR, "items-basic.svg"), sheet("Basic Items", BASIC_ITEMS, { columns: 4, cardWidth: 250, cardHeight: 82 }, itemCard));
-  await writeFile(join(SVG_DIR, "items-tier1.svg"), sheet("Tier 1 Items", TIER1_ITEMS, { columns: 4, cardWidth: 250, cardHeight: 82 }, itemCard));
-  await writeFile(join(SVG_DIR, "items-tier2.svg"), sheet("Tier 2 Completed Items", TIER2_ITEMS, { columns: 4, cardWidth: 250, cardHeight: 82 }, itemCard));
+  await writeFile(join(SVG_DIR, "units.svg"), sheet("Relic Arena Units", UNITS, { columns: 5, cardWidth: 210, cardHeight: 96 }, unitCard));
+  await writeFile(join(SVG_DIR, "traits.svg"), sheet("Relic Arena Synergies", ALL_TRAITS, { columns: 4, cardWidth: 250, cardHeight: 116 }, traitCard));
+  await writeFile(join(SVG_DIR, "items-basic.svg"), sheet("Basic Items", BASIC_ITEMS, { columns: 4, cardWidth: 250, cardHeight: 106 }, itemCard));
+  await writeFile(join(SVG_DIR, "items-tier1.svg"), sheet("Tier 1 Items", TIER1_ITEMS, { columns: 4, cardWidth: 250, cardHeight: 106 }, itemCard));
+  await writeFile(join(SVG_DIR, "items-tier2.svg"), sheet("Tier 2 Completed Items", TIER2_ITEMS, { columns: 4, cardWidth: 250, cardHeight: 106 }, itemCard));
   await writeFile(join(OUT_DIR, "README.ko.md"), readme());
 }
 
