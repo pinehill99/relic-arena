@@ -1,0 +1,245 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1084" height="558" viewBox="0 0 1084 558" role="img" aria-label="Tier 1 Items">
+  <rect width="100%" height="100%" fill="#07111f"/>
+  <rect x="10" y="10" width="1064" height="538" rx="16" fill="#0f172a" stroke="#24324f"/>
+  <text x="24" y="42" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="24" fill="#fbbf24" font-weight="800">Tier 1 Items</text>
+  <g>
+    <rect x="24" y="76" width="250" height="82" rx="8" fill="#111827" stroke="#0F766E" stroke-width="2"/>
+    <g transform="translate(36 93) scale(1.3125)" aria-label="Greatsword">
+    <rect x="1" y="1" width="30" height="30" rx="6" fill="#0b1220" stroke="#0F766E" stroke-width="2.5"/>
+    <path d="M16 5l11 11-11 11L5 16z" fill="#0F766E"/>
+    <circle cx="16" cy="16" r="3.5" fill="hsl(180 70% 60%)"/>
+    <path d="M16 9l2.2 4.5 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5-3.6-3.5 5-.7z" fill="hsl(180 70% 60%)" opacity="0.55"/>
+  </g>
+    <text x="90" y="100" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="12" fill="#f8fafc" font-weight="800">Greatsword</text>
+    <text x="90" y="118" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#cbd5e1" font-weight="500">Tier 1 · +35 AD</text>
+    <text x="90" y="137" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="9" fill="#fde68a" font-weight="500">+35 AD. Attacks deal +8 bonus physical damage.</text>
+  </g>
+<g>
+    <rect x="286" y="76" width="250" height="82" rx="8" fill="#111827" stroke="#0F766E" stroke-width="2"/>
+    <g transform="translate(298 93) scale(1.3125)" aria-label="Staff of Cinders">
+    <rect x="1" y="1" width="30" height="30" rx="6" fill="#0b1220" stroke="#0F766E" stroke-width="2.5"/>
+    <path d="M16 5l11 11-11 11L5 16z" fill="#0F766E"/>
+    <circle cx="16" cy="16" r="3.5" fill="hsl(194 70% 60%)"/>
+    <path d="M16 9l2.2 4.5 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5-3.6-3.5 5-.7z" fill="hsl(194 70% 60%)" opacity="0.55"/>
+  </g>
+    <text x="352" y="100" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="12" fill="#f8fafc" font-weight="800">Staff of Cinders</text>
+    <text x="352" y="118" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#cbd5e1" font-weight="500">Tier 1 · +45 SP</text>
+    <text x="352" y="137" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="9" fill="#fde68a" font-weight="500">+45 spell power. Spell hits burn for 40 magic damage over 3s.</text>
+  </g>
+<g>
+    <rect x="548" y="76" width="250" height="82" rx="8" fill="#111827" stroke="#0F766E" stroke-width="2"/>
+    <g transform="translate(560 93) scale(1.3125)" aria-label="Bastion Plate">
+    <rect x="1" y="1" width="30" height="30" rx="6" fill="#0b1220" stroke="#0F766E" stroke-width="2.5"/>
+    <path d="M16 5l11 11-11 11L5 16z" fill="#0F766E"/>
+    <circle cx="16" cy="16" r="3.5" fill="hsl(152 70% 60%)"/>
+    <path d="M16 9l2.2 4.5 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5-3.6-3.5 5-.7z" fill="hsl(152 70% 60%)" opacity="0.55"/>
+  </g>
+    <text x="614" y="100" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="12" fill="#f8fafc" font-weight="800">Bastion Plate</text>
+    <text x="614" y="118" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#cbd5e1" font-weight="500">Tier 1 · +50 Armor</text>
+    <text x="614" y="137" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="9" fill="#fde68a" font-weight="500">+50 armor. First time below 50% HP, gain 250 shield.</text>
+  </g>
+<g>
+    <rect x="810" y="76" width="250" height="82" rx="8" fill="#111827" stroke="#0F766E" stroke-width="2"/>
+    <g transform="translate(822 93) scale(1.3125)" aria-label="Mirror Mantle">
+    <rect x="1" y="1" width="30" height="30" rx="6" fill="#0b1220" stroke="#0F766E" stroke-width="2.5"/>
+    <path d="M16 5l11 11-11 11L5 16z" fill="#0F766E"/>
+    <circle cx="16" cy="16" r="3.5" fill="hsl(261 70% 60%)"/>
+    <path d="M16 9l2.2 4.5 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5-3.6-3.5 5-.7z" fill="hsl(261 70% 60%)" opacity="0.55"/>
+  </g>
+    <text x="876" y="100" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="12" fill="#f8fafc" font-weight="800">Mirror Mantle</text>
+    <text x="876" y="118" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#cbd5e1" font-weight="500">Tier 1 · +50 MR</text>
+    <text x="876" y="137" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="9" fill="#fde68a" font-weight="500">+50 MR. Reduce first spell hit by 35%.</text>
+  </g>
+<g>
+    <rect x="24" y="170" width="250" height="82" rx="8" fill="#111827" stroke="#0F766E" stroke-width="2"/>
+    <g transform="translate(36 187) scale(1.3125)" aria-label="Blue Core">
+    <rect x="1" y="1" width="30" height="30" rx="6" fill="#0b1220" stroke="#0F766E" stroke-width="2.5"/>
+    <path d="M16 5l11 11-11 11L5 16z" fill="#0F766E"/>
+    <circle cx="16" cy="16" r="3.5" fill="hsl(97 70% 60%)"/>
+    <path d="M16 9l2.2 4.5 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5-3.6-3.5 5-.7z" fill="hsl(97 70% 60%)" opacity="0.55"/>
+  </g>
+    <text x="90" y="194" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="12" fill="#f8fafc" font-weight="800">Blue Core</text>
+    <text x="90" y="212" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#cbd5e1" font-weight="500">Tier 1 · +40 Mana</text>
+    <text x="90" y="231" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="9" fill="#fde68a" font-weight="500">+40 starting mana. Gain 5 mana after casting.</text>
+  </g>
+<g>
+    <rect x="286" y="170" width="250" height="82" rx="8" fill="#111827" stroke="#0F766E" stroke-width="2"/>
+    <g transform="translate(298 187) scale(1.3125)" aria-label="Giant's Heart">
+    <rect x="1" y="1" width="30" height="30" rx="6" fill="#0b1220" stroke="#0F766E" stroke-width="2.5"/>
+    <path d="M16 5l11 11-11 11L5 16z" fill="#0F766E"/>
+    <circle cx="16" cy="16" r="3.5" fill="hsl(190 70% 60%)"/>
+    <path d="M16 9l2.2 4.5 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5-3.6-3.5 5-.7z" fill="hsl(190 70% 60%)" opacity="0.55"/>
+  </g>
+    <text x="352" y="194" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="12" fill="#f8fafc" font-weight="800">Giant's Heart</text>
+    <text x="352" y="212" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#cbd5e1" font-weight="500">Tier 1 · +450 HP</text>
+    <text x="352" y="231" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="9" fill="#fde68a" font-weight="500">+450 HP. Regenerate 1% max HP per second.</text>
+  </g>
+<g>
+    <rect x="548" y="170" width="250" height="82" rx="8" fill="#111827" stroke="#0F766E" stroke-width="2"/>
+    <g transform="translate(560 187) scale(1.3125)" aria-label="Rapid Gears">
+    <rect x="1" y="1" width="30" height="30" rx="6" fill="#0b1220" stroke="#0F766E" stroke-width="2.5"/>
+    <path d="M16 5l11 11-11 11L5 16z" fill="#0F766E"/>
+    <circle cx="16" cy="16" r="3.5" fill="hsl(266 70% 60%)"/>
+    <path d="M16 9l2.2 4.5 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5-3.6-3.5 5-.7z" fill="hsl(266 70% 60%)" opacity="0.55"/>
+  </g>
+    <text x="614" y="194" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="12" fill="#f8fafc" font-weight="800">Rapid Gears</text>
+    <text x="614" y="212" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#cbd5e1" font-weight="500">Tier 1 · +35 AS</text>
+    <text x="614" y="231" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="9" fill="#fde68a" font-weight="500">+35% attack speed. Every 6th attack deals +60 magic damage.</text>
+  </g>
+<g>
+    <rect x="810" y="170" width="250" height="82" rx="8" fill="#111827" stroke="#0F766E" stroke-width="2"/>
+    <g transform="translate(822 187) scale(1.3125)" aria-label="Fate Dice">
+    <rect x="1" y="1" width="30" height="30" rx="6" fill="#0b1220" stroke="#0F766E" stroke-width="2.5"/>
+    <path d="M16 5l11 11-11 11L5 16z" fill="#0F766E"/>
+    <circle cx="16" cy="16" r="3.5" fill="hsl(166 70% 60%)"/>
+    <path d="M16 9l2.2 4.5 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5-3.6-3.5 5-.7z" fill="hsl(166 70% 60%)" opacity="0.55"/>
+  </g>
+    <text x="876" y="194" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="12" fill="#f8fafc" font-weight="800">Fate Dice</text>
+    <text x="876" y="212" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#cbd5e1" font-weight="500">Tier 1 · +35 Crit</text>
+    <text x="876" y="231" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="9" fill="#fde68a" font-weight="500">+35% crit chance. Critical hits grant 3 mana.</text>
+  </g>
+<g>
+    <rect x="24" y="264" width="250" height="82" rx="8" fill="#111827" stroke="#0F766E" stroke-width="2"/>
+    <g transform="translate(36 281) scale(1.3125)" aria-label="Recurve Edge">
+    <rect x="1" y="1" width="30" height="30" rx="6" fill="#0b1220" stroke="#0F766E" stroke-width="2.5"/>
+    <path d="M16 5l11 11-11 11L5 16z" fill="#0F766E"/>
+    <circle cx="16" cy="16" r="3.5" fill="hsl(103 70% 60%)"/>
+    <path d="M16 9l2.2 4.5 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5-3.6-3.5 5-.7z" fill="hsl(103 70% 60%)" opacity="0.55"/>
+  </g>
+    <text x="90" y="288" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="12" fill="#f8fafc" font-weight="800">Recurve Edge</text>
+    <text x="90" y="306" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#cbd5e1" font-weight="500">Tier 1 · +20 AD, +20 AS</text>
+    <text x="90" y="325" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="9" fill="#fde68a" font-weight="500">+20 AD, +20% attack speed.</text>
+  </g>
+<g>
+    <rect x="286" y="264" width="250" height="82" rx="8" fill="#111827" stroke="#0F766E" stroke-width="2"/>
+    <g transform="translate(298 281) scale(1.3125)" aria-label="Executioner's Mark">
+    <rect x="1" y="1" width="30" height="30" rx="6" fill="#0b1220" stroke="#0F766E" stroke-width="2.5"/>
+    <path d="M16 5l11 11-11 11L5 16z" fill="#0F766E"/>
+    <circle cx="16" cy="16" r="3.5" fill="hsl(340 70% 60%)"/>
+    <path d="M16 9l2.2 4.5 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5-3.6-3.5 5-.7z" fill="hsl(340 70% 60%)" opacity="0.55"/>
+  </g>
+    <text x="352" y="288" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="12" fill="#f8fafc" font-weight="800">Executioner's Mark</text>
+    <text x="352" y="306" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#cbd5e1" font-weight="500">Tier 1 · +20 AD, +20 Crit</text>
+    <text x="352" y="325" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="9" fill="#fde68a" font-weight="500">+20 AD, +20% crit chance. Crits deal +20% damage.</text>
+  </g>
+<g>
+    <rect x="548" y="264" width="250" height="82" rx="8" fill="#111827" stroke="#0F766E" stroke-width="2"/>
+    <g transform="translate(560 281) scale(1.3125)" aria-label="Titan Cleaver">
+    <rect x="1" y="1" width="30" height="30" rx="6" fill="#0b1220" stroke="#0F766E" stroke-width="2.5"/>
+    <path d="M16 5l11 11-11 11L5 16z" fill="#0F766E"/>
+    <circle cx="16" cy="16" r="3.5" fill="hsl(297 70% 60%)"/>
+    <path d="M16 9l2.2 4.5 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5-3.6-3.5 5-.7z" fill="hsl(297 70% 60%)" opacity="0.55"/>
+  </g>
+    <text x="614" y="288" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="12" fill="#f8fafc" font-weight="800">Titan Cleaver</text>
+    <text x="614" y="306" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#cbd5e1" font-weight="500">Tier 1 · +18 AD, +250 HP</text>
+    <text x="614" y="325" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="9" fill="#fde68a" font-weight="500">+18 AD, +250 HP. Attacks cleave for 20% damage.</text>
+  </g>
+<g>
+    <rect x="810" y="264" width="250" height="82" rx="8" fill="#111827" stroke="#0F766E" stroke-width="2"/>
+    <g transform="translate(822 281) scale(1.3125)" aria-label="Spell Battery">
+    <rect x="1" y="1" width="30" height="30" rx="6" fill="#0b1220" stroke="#0F766E" stroke-width="2.5"/>
+    <path d="M16 5l11 11-11 11L5 16z" fill="#0F766E"/>
+    <circle cx="16" cy="16" r="3.5" fill="hsl(85 70% 60%)"/>
+    <path d="M16 9l2.2 4.5 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5-3.6-3.5 5-.7z" fill="hsl(85 70% 60%)" opacity="0.55"/>
+  </g>
+    <text x="876" y="288" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="12" fill="#f8fafc" font-weight="800">Spell Battery</text>
+    <text x="876" y="306" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#cbd5e1" font-weight="500">Tier 1 · +25 SP, +25 Mana</text>
+    <text x="876" y="325" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="9" fill="#fde68a" font-weight="500">+25 spell power, +25 starting mana.</text>
+  </g>
+<g>
+    <rect x="24" y="358" width="250" height="82" rx="8" fill="#111827" stroke="#0F766E" stroke-width="2"/>
+    <g transform="translate(36 375) scale(1.3125)" aria-label="Hexfire Orb">
+    <rect x="1" y="1" width="30" height="30" rx="6" fill="#0b1220" stroke="#0F766E" stroke-width="2.5"/>
+    <path d="M16 5l11 11-11 11L5 16z" fill="#0F766E"/>
+    <circle cx="16" cy="16" r="3.5" fill="hsl(107 70% 60%)"/>
+    <path d="M16 9l2.2 4.5 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5-3.6-3.5 5-.7z" fill="hsl(107 70% 60%)" opacity="0.55"/>
+  </g>
+    <text x="90" y="382" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="12" fill="#f8fafc" font-weight="800">Hexfire Orb</text>
+    <text x="90" y="400" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#cbd5e1" font-weight="500">Tier 1 · +25 SP, +20 Crit</text>
+    <text x="90" y="419" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="9" fill="#fde68a" font-weight="500">+25 spell power, +20% crit chance. Spells can crit.</text>
+  </g>
+<g>
+    <rect x="286" y="358" width="250" height="82" rx="8" fill="#111827" stroke="#0F766E" stroke-width="2"/>
+    <g transform="translate(298 375) scale(1.3125)" aria-label="Nullflame Wand">
+    <rect x="1" y="1" width="30" height="30" rx="6" fill="#0b1220" stroke="#0F766E" stroke-width="2.5"/>
+    <path d="M16 5l11 11-11 11L5 16z" fill="#0F766E"/>
+    <circle cx="16" cy="16" r="3.5" fill="hsl(242 70% 60%)"/>
+    <path d="M16 9l2.2 4.5 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5-3.6-3.5 5-.7z" fill="hsl(242 70% 60%)" opacity="0.55"/>
+  </g>
+    <text x="352" y="382" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="12" fill="#f8fafc" font-weight="800">Nullflame Wand</text>
+    <text x="352" y="400" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#cbd5e1" font-weight="500">Tier 1 · +25 SP, +25 MR</text>
+    <text x="352" y="419" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="9" fill="#fde68a" font-weight="500">+25 spell power, +25 MR. Spells shred 10 MR for 4s.</text>
+  </g>
+<g>
+    <rect x="548" y="358" width="250" height="82" rx="8" fill="#111827" stroke="#0F766E" stroke-width="2"/>
+    <g transform="translate(560 375) scale(1.3125)" aria-label="Aegis Shell">
+    <rect x="1" y="1" width="30" height="30" rx="6" fill="#0b1220" stroke="#0F766E" stroke-width="2.5"/>
+    <path d="M16 5l11 11-11 11L5 16z" fill="#0F766E"/>
+    <circle cx="16" cy="16" r="3.5" fill="hsl(216 70% 60%)"/>
+    <path d="M16 9l2.2 4.5 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5-3.6-3.5 5-.7z" fill="hsl(216 70% 60%)" opacity="0.55"/>
+  </g>
+    <text x="614" y="382" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="12" fill="#f8fafc" font-weight="800">Aegis Shell</text>
+    <text x="614" y="400" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#cbd5e1" font-weight="500">Tier 1 · +30 Armor, +30 MR</text>
+    <text x="614" y="419" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="9" fill="#fde68a" font-weight="500">+30 armor, +30 MR. Nearby allies gain 10 armor/MR.</text>
+  </g>
+<g>
+    <rect x="810" y="358" width="250" height="82" rx="8" fill="#111827" stroke="#0F766E" stroke-width="2"/>
+    <g transform="translate(822 375) scale(1.3125)" aria-label="Stoneguard Mail">
+    <rect x="1" y="1" width="30" height="30" rx="6" fill="#0b1220" stroke="#0F766E" stroke-width="2.5"/>
+    <path d="M16 5l11 11-11 11L5 16z" fill="#0F766E"/>
+    <circle cx="16" cy="16" r="3.5" fill="hsl(91 70% 60%)"/>
+    <path d="M16 9l2.2 4.5 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5-3.6-3.5 5-.7z" fill="hsl(91 70% 60%)" opacity="0.55"/>
+  </g>
+    <text x="876" y="382" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="12" fill="#f8fafc" font-weight="800">Stoneguard Mail</text>
+    <text x="876" y="400" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#cbd5e1" font-weight="500">Tier 1 · +30 Armor, +300 HP</text>
+    <text x="876" y="419" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="9" fill="#fde68a" font-weight="500">+30 armor, +300 HP. Taunt nearby enemies for 1s at combat star...</text>
+  </g>
+<g>
+    <rect x="24" y="452" width="250" height="82" rx="8" fill="#111827" stroke="#0F766E" stroke-width="2"/>
+    <g transform="translate(36 469) scale(1.3125)" aria-label="Ward Engine">
+    <rect x="1" y="1" width="30" height="30" rx="6" fill="#0b1220" stroke="#0F766E" stroke-width="2.5"/>
+    <path d="M16 5l11 11-11 11L5 16z" fill="#0F766E"/>
+    <circle cx="16" cy="16" r="3.5" fill="hsl(279 70% 60%)"/>
+    <path d="M16 9l2.2 4.5 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5-3.6-3.5 5-.7z" fill="hsl(279 70% 60%)" opacity="0.55"/>
+  </g>
+    <text x="90" y="476" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="12" fill="#f8fafc" font-weight="800">Ward Engine</text>
+    <text x="90" y="494" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#cbd5e1" font-weight="500">Tier 1 · +25 Armor, +25 Mana</text>
+    <text x="90" y="513" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="9" fill="#fde68a" font-weight="500">+25 armor, +25 starting mana. First cast grants 220 shield.</text>
+  </g>
+<g>
+    <rect x="286" y="452" width="250" height="82" rx="8" fill="#111827" stroke="#0F766E" stroke-width="2"/>
+    <g transform="translate(298 469) scale(1.3125)" aria-label="Spirit Bulwark">
+    <rect x="1" y="1" width="30" height="30" rx="6" fill="#0b1220" stroke="#0F766E" stroke-width="2.5"/>
+    <path d="M16 5l11 11-11 11L5 16z" fill="#0F766E"/>
+    <circle cx="16" cy="16" r="3.5" fill="hsl(353 70% 60%)"/>
+    <path d="M16 9l2.2 4.5 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5-3.6-3.5 5-.7z" fill="hsl(353 70% 60%)" opacity="0.55"/>
+  </g>
+    <text x="352" y="476" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="12" fill="#f8fafc" font-weight="800">Spirit Bulwark</text>
+    <text x="352" y="494" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#cbd5e1" font-weight="500">Tier 1 · +30 MR, +300 HP</text>
+    <text x="352" y="513" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="9" fill="#fde68a" font-weight="500">+30 MR, +300 HP. Heal for 120 after taking spell damage.</text>
+  </g>
+<g>
+    <rect x="548" y="452" width="250" height="82" rx="8" fill="#111827" stroke="#0F766E" stroke-width="2"/>
+    <g transform="translate(560 469) scale(1.3125)" aria-label="Tempo Lens">
+    <rect x="1" y="1" width="30" height="30" rx="6" fill="#0b1220" stroke="#0F766E" stroke-width="2.5"/>
+    <path d="M16 5l11 11-11 11L5 16z" fill="#0F766E"/>
+    <circle cx="16" cy="16" r="3.5" fill="hsl(110 70% 60%)"/>
+    <path d="M16 9l2.2 4.5 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5-3.6-3.5 5-.7z" fill="hsl(110 70% 60%)" opacity="0.55"/>
+  </g>
+    <text x="614" y="476" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="12" fill="#f8fafc" font-weight="800">Tempo Lens</text>
+    <text x="614" y="494" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#cbd5e1" font-weight="500">Tier 1 · +20 Mana, +20 AS</text>
+    <text x="614" y="513" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="9" fill="#fde68a" font-weight="500">+20 starting mana, +20% attack speed. Attacks grant +1 extra m...</text>
+  </g>
+<g>
+    <rect x="810" y="452" width="250" height="82" rx="8" fill="#111827" stroke="#0F766E" stroke-width="2"/>
+    <g transform="translate(822 469) scale(1.3125)" aria-label="Deadeye Scope">
+    <rect x="1" y="1" width="30" height="30" rx="6" fill="#0b1220" stroke="#0F766E" stroke-width="2.5"/>
+    <path d="M16 5l11 11-11 11L5 16z" fill="#0F766E"/>
+    <circle cx="16" cy="16" r="3.5" fill="hsl(10 70% 60%)"/>
+    <path d="M16 9l2.2 4.5 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5-3.6-3.5 5-.7z" fill="hsl(10 70% 60%)" opacity="0.55"/>
+  </g>
+    <text x="876" y="476" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="12" fill="#f8fafc" font-weight="800">Deadeye Scope</text>
+    <text x="876" y="494" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" fill="#cbd5e1" font-weight="500">Tier 1 · +20 AS, +20 Crit</text>
+    <text x="876" y="513" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="9" fill="#fde68a" font-weight="500">+20% attack speed, +20% crit chance. +1 range if ranged.</text>
+  </g>
+</svg>
