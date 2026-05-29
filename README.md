@@ -6,6 +6,28 @@ All names, units, traits, items, icons, and copy are original. No third-party IP
 
 Play online: https://pinehill99.github.io/relic-arena/
 
+## Development process
+
+Relic Arena was built as a fully client-side game prototype, with the core rules separated from the React UI so the game can be tested without a browser. The implementation pass focused on three layers:
+
+- **Game model:** typed unit, trait, item, monster, economy, shop, pool, and round definitions.
+- **Simulation engine:** deterministic seeded RNG, auto-combat ticks, synergy scoring, item recipes, star upgrades, and a headless 100-round smoke test.
+- **Playable interface:** an 8x8 board, bench, shop, inventory, inspector, event log, local save state, and one-click combat flow.
+
+The balancing data is generated and audited with repeatable checks. The current validation suite confirms the roster counts, 8 basic items, 20 tier-1 items, 100 tier-2 recipes, shop odds, 100 generated rounds, and a full 100-round combat simulation.
+
+## Gameplay videos
+
+The clips below show the public GitHub Pages build in play.
+
+<video src="docs/media/relic-arena-gameplay-overview.mp4" controls width="100%" title="Relic Arena gameplay overview"></video>
+
+[Open gameplay overview video](docs/media/relic-arena-gameplay-overview.mp4)
+
+<video src="docs/media/relic-arena-gameplay-combat.mp4" controls width="100%" title="Relic Arena combat and interface"></video>
+
+[Open combat and interface video](docs/media/relic-arena-gameplay-combat.mp4)
+
 ## 1. Run instructions
 
 ```bash
