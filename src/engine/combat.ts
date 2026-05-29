@@ -42,6 +42,7 @@ export interface CombatEntity {
   spellVamp: number; // 0..1
   attackCd: number;
   moveCd: number;
+  targetId?: string;
   alive: boolean;
   isSummon: boolean;
   // status
@@ -65,6 +66,7 @@ export interface CombatEntity {
   isMage: boolean;
   isCaster: boolean;
   isBoss: boolean;
+  untargetableUntil?: number;
   hasRevive?: boolean;
   revived?: boolean;
   // verdant
@@ -495,6 +497,7 @@ export class Combat {
         }
         e.row = r;
         e.col = c;
+        e.untargetableUntil = TICK;
         this.occupied.add(this.cellKey(r, c));
       }
     }
@@ -601,7 +604,7 @@ export class Combat {
     let best: CombatEntity | null = null;
     let bestD = Infinity;
     for (const o of this.entities) {
-      if (!o.alive || o.side === e.side) continue;
+      if (!this.canTarget(e, o)) continue;
       const d = cheby(e, o);
       if (d < bestD) {
         bestD = d;
@@ -609,6 +612,23 @@ export class Combat {
       }
     }
     return best;
+  }
+
+  private canTarget(e: CombatEntity, target: CombatEntity): boolean {
+    if (!target.alive || target.side === e.side) return false;
+    if (target.untargetableUntil !== undefined && this.time <= target.untargetableUntil) {
+      return false;
+    }
+    return true;
+  }
+
+  private targetFor(e: CombatEntity): CombatEntity | null {
+    const locked = e.targetId ? this.entities.find((o) => o.id === e.targetId) : null;
+    if (locked && this.canTarget(e, locked)) return locked;
+
+    const next = this.nearestEnemy(e);
+    e.targetId = next?.id;
+    return next;
   }
 
   private lowestAlly(e: CombatEntity): CombatEntity | null {
@@ -722,6 +742,9 @@ export class Combat {
       return;
     }
     e.alive = false;
+    for (const other of this.entities) {
+      if (other.targetId === e.id) other.targetId = undefined;
+    }
     this.occupied.delete(this.cellKey(e.row, e.col));
   }
 
@@ -868,7 +891,7 @@ export class Combat {
       }
       if (!e.alive) continue;
 
-      const target = e.archetype === "heal" && e.mana >= e.maxMana ? this.nearestEnemy(e) : this.nearestEnemy(e);
+      const target = this.targetFor(e);
       if (!target) continue;
 
       // cast if full mana

@@ -1,6 +1,6 @@
 # Relic Arena — 백 라운드 건틀릿
 
-[English README](README.md)
+[English README](README.md) · [패치노트](PATCH_NOTES.md)
 
 Relic Arena는 오리지널 싱글 플레이 PvE 오토배틀러입니다. 유닛을 구매하고, 기원/직업 시너지를 맞추고, 한정된 유닛 풀과 아이템 조합을 관리하면서 100라운드까지 버티는 게임입니다. Vite, React, TypeScript로 만든 완전 클라이언트 사이드 게임이며, 시드 기반 deterministic RNG와 `localStorage` 저장을 사용합니다.
 

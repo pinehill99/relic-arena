@@ -1,6 +1,6 @@
 # Relic Arena — Hundred-Round Gauntlet
 
-[한국어 README](README.ko.md)
+[한국어 README](README.ko.md) · [Patch notes](PATCH_NOTES.md)
 
 An original single-player PvE auto-battler. Draft units, build origin/class synergies, manage a finite unit pool, forge items, and survive 100 escalating rounds. Fully client-side (Vite + React + TypeScript), deterministic seeded RNG, state persisted to `localStorage`.
 
