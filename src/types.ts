@@ -50,6 +50,14 @@ export interface UnitDef {
   costColor: string;
 }
 
+export type BoardSummonKind = "engineer-turret";
+export type BoardSummonTier = 0 | 1 | 2;
+
+export interface BoardSummon {
+  kind: BoardSummonKind;
+  tier: BoardSummonTier;
+}
+
 export type ItemTier = "basic" | 1 | 2;
 
 export interface ItemStats {
@@ -81,6 +89,7 @@ export interface UnitInstance {
   defId: number;
   star: 1 | 2 | 3;
   items: string[]; // item ids equipped (max 3)
+  summon?: BoardSummon; // board-only generated pieces such as Engineer turrets
   // location
   loc: "bench" | "board";
   row?: number; // 0..7 (board only); player uses rows 4..7

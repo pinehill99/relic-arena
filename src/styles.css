@@ -135,6 +135,7 @@ button.ghost { background: transparent; }
 
 .token { position: relative; display: flex; align-items: center; justify-content: center; }
 .token.sel { filter: drop-shadow(0 0 4px var(--accent)); }
+.token.summon { filter: drop-shadow(0 0 3px #38bdf8); }
 .token.enemy { opacity: 0.95; }
 
 .mon-token {

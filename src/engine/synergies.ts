@@ -7,6 +7,7 @@ export function computeTraitCounts(board: UnitInstance[]): Map<TraitName, number
   const seenDefs = new Set<number>();
   const counts = new Map<TraitName, number>();
   for (const inst of board) {
+    if (inst.summon) continue;
     if (seenDefs.has(inst.defId)) continue; // unique units only
     seenDefs.add(inst.defId);
     const def = UNIT_BY_ID[inst.defId];

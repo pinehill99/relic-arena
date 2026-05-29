@@ -4,6 +4,7 @@ import { getItem } from "../data/items";
 import { STAR_SCALING, COMBAT_TICK_MS, COMBAT_TIMEOUT_S } from "../data/balance";
 import { RNG } from "./rng";
 import { computeTraitCounts, activeTierIndex } from "./synergies";
+import { engineerTurretStats, fieldedUnits, isEngineerTurret } from "./turrets";
 
 const TICK = COMBAT_TICK_MS / 1000; // seconds
 const BASE_APS = 0.6;
@@ -67,6 +68,7 @@ export interface CombatEntity {
   isCaster: boolean;
   isBoss: boolean;
   untargetableUntil?: number;
+  turretTier?: 0 | 1 | 2;
   hasRevive?: boolean;
   revived?: boolean;
   // verdant
@@ -414,6 +416,69 @@ function buildEnemyEntity(m: RoundMonster, idx: number): CombatEntity {
   return e;
 }
 
+function buildEngineerTurretEntity(inst: UnitInstance, avgAD: number): CombatEntity {
+  const tier = inst.summon?.tier ?? 0;
+  const def = engineerTurretStats(tier);
+  const ad = Math.round(avgAD * def.adMultiplier);
+  return {
+    id: `p_${inst.iid}`,
+    side: "player",
+    name: def.name,
+    star: 1,
+    cost: 0,
+    row: inst.row ?? 7,
+    col: inst.col ?? 0,
+    maxHP: def.hp,
+    hp: def.hp,
+    shield: 0,
+    ad,
+    sp: 0,
+    armor: 0,
+    mr: 0,
+    range: def.range,
+    maxMana: 0,
+    mana: 0,
+    asBonusPct: def.asBonusPct,
+    asStacks: 0,
+    asPerStack: 0,
+    asStackCap: 0,
+    critChance: 0,
+    critDamage: 1.5,
+    armorPen: 0,
+    magicPen: 0,
+    omnivamp: 0,
+    spellVamp: 0,
+    attackCd: 0,
+    moveCd: 0,
+    alive: true,
+    isSummon: true,
+    burnDps: 0,
+    burnRemaining: 0,
+    slowPct: 0,
+    slowRemaining: 0,
+    stunRemaining: 0,
+    emberBurnPct: 0,
+    emberSpread: false,
+    frostSlowPct: 0,
+    frostFreeze: false,
+    ironReflect: false,
+    shadowExecutePct: 0,
+    archetype: "damage",
+    skillKind: "physical",
+    skillBurst: 0,
+    healAmt: 0,
+    shieldAmt: 0,
+    isMage: false,
+    isCaster: false,
+    isBoss: false,
+    turretTier: tier,
+    verdant: false,
+    verdantHealPct: 0,
+    storm: false,
+    stormChain: 0,
+  };
+}
+
 function cheby(a: CombatEntity, b: CombatEntity): number {
   return Math.max(Math.abs(a.row - b.row), Math.abs(a.col - b.col));
 }
@@ -432,12 +497,15 @@ export class Combat {
 
   constructor(playerBoard: UnitInstance[], monsters: RoundMonster[], seed: number) {
     this.rng = new RNG(seed);
-    const counts = computeTraitCounts(playerBoard);
+    const playerUnits = fieldedUnits(playerBoard);
+    const counts = computeTraitCounts(playerUnits);
     const ctx: TraitContext = { count: (t) => counts.get(t) ?? 0 };
+    const builtPlayers = playerUnits.map((inst, i) => buildPlayerEntity(inst, ctx, i));
+    const avgAD = builtPlayers.length ? builtPlayers.reduce((s, e) => s + e.ad, 0) / builtPlayers.length : 50;
 
-    playerBoard.forEach((inst, i) => {
-      const e = buildPlayerEntity(inst, ctx, i);
-      this.entities.push(e);
+    this.entities.push(...builtPlayers);
+    playerBoard.filter(isEngineerTurret).forEach((inst) => {
+      this.entities.push(buildEngineerTurretEntity(inst, avgAD));
     });
 
     // Place enemies in top rows 0-3.
@@ -454,7 +522,7 @@ export class Combat {
     });
 
     this.resolveInitialPlacement();
-    this.applyCombatStart(playerBoard, ctx);
+    this.applyCombatStart();
   }
 
   private cellKey(r: number, c: number) {
@@ -479,7 +547,7 @@ export class Combat {
     }
   }
 
-  private applyCombatStart(playerBoard: UnitInstance[], ctx: TraitContext) {
+  private applyCombatStart() {
     // Guardian shields at start
     for (const e of this.entities) {
       if (e.side === "player" && e.archetype === "shield") {
@@ -502,18 +570,6 @@ export class Combat {
       }
     }
 
-    // Engineer turrets & Summoner pre-summons
-    const players = this.entities.filter((e) => e.side === "player" && !e.isSummon);
-    const avgAD = players.length ? players.reduce((s, e) => s + e.ad, 0) / players.length : 50;
-    const engineerCount = ctx.count("Engineer");
-    const engTier = activeTierIndex([2, 4, 6], engineerCount);
-    if (engTier >= 0) {
-      const turrets = [1, 2, 3][engTier];
-      const pct = [0.2, 0.3, 0.45][engTier];
-      for (let i = 0; i < turrets; i++) {
-        this.spawnSummon("Turret", avgAD * pct, 600, 3, true);
-      }
-    }
   }
 
   private spawnSummon(name: string, ad: number, hp: number, range: number, isTurret: boolean) {
@@ -646,7 +702,7 @@ export class Combat {
   }
 
   private moveToward(e: CombatEntity, target: CombatEntity) {
-    if (e.isSummon && e.name === "Turret") return; // turrets stationary
+    if (e.isSummon && e.name.includes("Turret")) return; // turrets stationary
     if (e.moveCd > 0) return;
     let bestR = e.row;
     let bestC = e.col;

@@ -3,12 +3,18 @@ import { UNIT_BY_ID } from "../data/units";
 import { getItem } from "../data/items";
 import { STAR_SCALING } from "../data/balance";
 import { activeThresholdCount } from "./synergies";
+import { engineerTurretStats, isEngineerTurret } from "./turrets";
 
 function starBonus(star: number): number {
   return star === 1 ? 0 : star === 2 ? 140 : 420;
 }
 
 export function unitFieldPower(inst: UnitInstance): number {
+  if (isEngineerTurret(inst)) {
+    const def = engineerTurretStats(inst.summon?.tier ?? 0);
+    return def.hp * 0.12 + def.adMultiplier * 500 + def.range * 25;
+  }
+
   const def = UNIT_BY_ID[inst.defId];
   if (!def) return 0;
   const scale = STAR_SCALING[inst.star];
