@@ -14,6 +14,6 @@ export function nextInspectFromHover(
   hovered: NonNullable<Inspect>,
   selectedUnit: string | null
 ): Inspect {
-  if (hovered.kind === "trait") return hovered;
+  if (hovered.kind === "trait" || hovered.kind === "item") return hovered;
   return selectedUnit ? current : hovered;
 }

@@ -179,6 +179,31 @@ export function getItem(id: string): ItemDef | undefined {
   return ALL_ITEMS_BY_ID[id];
 }
 
+export function formatRecipeInputs(recipe: [string, string]): string {
+  return recipe.map((id) => getItem(id)?.name ?? id).join(" + ");
+}
+
+/** Recipes that produce this item (parents) or use it as a component (children). */
+export function itemRecipeLines(itemId: string): { label: "recipe" | "combines"; text: string }[] {
+  const item = getItem(itemId);
+  if (!item) return [];
+
+  const lines: { label: "recipe" | "combines"; text: string }[] = [];
+  if (item.recipe) {
+    lines.push({ label: "recipe", text: formatRecipeInputs(item.recipe) });
+  }
+
+  const combines = new Set<string>();
+  for (const other of [...TIER1_ITEMS, ...TIER2_ITEMS]) {
+    if (!other.recipe?.includes(itemId)) continue;
+    combines.add(`${formatRecipeInputs(other.recipe)} → ${other.name}`);
+  }
+  for (const text of [...combines].sort()) {
+    lines.push({ label: "combines", text });
+  }
+  return lines;
+}
+
 export function itemTierRank(item: ItemDef): number {
   return item.tier === "basic" ? 0 : item.tier;
 }

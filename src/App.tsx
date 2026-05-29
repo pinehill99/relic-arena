@@ -17,12 +17,12 @@ import {
   loadState,
   clearSave,
   boardCount,
+  monstersForRound,
 } from "./game";
 import { UNIT_BY_ID } from "./data/units";
-import { getItem } from "./data/items";
+import { getItem, itemRecipeLines } from "./data/items";
 import { COST_COLORS, COST_NAMES, REROLL_COST, BUY_XP_COST, MAX_LEVEL, BENCH_SLOTS } from "./data/balance";
-import { generateRound, isBossRound, roundDifficulty } from "./data/rounds";
-import { RNG } from "./engine/rng";
+import { isBossRound, roundDifficulty } from "./data/rounds";
 import { Combat } from "./engine/combat";
 import { computeActiveTraits } from "./engine/synergies";
 import { fieldPower } from "./engine/scoring";
@@ -37,10 +37,6 @@ import { nextInspectFromHover } from "./inspect";
 import { engineerTurretStats, isEngineerTurret } from "./engine/turrets";
 
 const CELL = 58;
-
-function monstersForRound(state: GameState, round: number): RoundMonster[] {
-  return generateRound(round, new RNG(state.seed + round * 7919));
-}
 
 export default function App() {
   const [gs, setGs] = useState<GameState>(() => loadState() ?? createInitialState());
@@ -469,7 +465,13 @@ export default function App() {
             <>
               <div className="insp-items">
                 {inst.items.map((id, k) => (
-                  <div key={k} className="insp-item" onClick={() => gs.phase === "prep" && mutate((s) => unequipItem(s, inst.iid, id))} title="Click to unequip">
+                  <div
+                    key={k}
+                    className="insp-item"
+                    onClick={() => gs.phase === "prep" && mutate((s) => unequipItem(s, inst.iid, id))}
+                    onMouseEnter={() => inspectOnHover({ kind: "item", itemId: id })}
+                    title="Click to unequip"
+                  >
                     <ItemIcon item={getItem(id)!} size={26} />
                     <span className="small">{getItem(id)?.name}</span>
                   </div>
@@ -489,6 +491,7 @@ export default function App() {
     if (inspect.kind === "item") {
       const item = getItem(inspect.itemId)!;
       const tierLabel = item.tier === "basic" ? "Basic" : item.tier === 1 ? "Tier 1" : "Tier 2";
+      const recipes = itemRecipeLines(inspect.itemId);
       return (
         <div className="inspect">
           <div className="insp-head">
@@ -500,9 +503,14 @@ export default function App() {
           </div>
           <div className="small">{item.effect}</div>
           <StatList stats={item.stats} />
-          {item.recipe && (
-            <div className="small muted">
-              Recipe: {item.recipe.map((r) => getItem(r)?.name ?? r).join(" + ")}
+          {recipes.length > 0 && (
+            <div className="insp-recipes">
+              {recipes.map((line) => (
+                <div key={`${line.label}-${line.text}`} className="small muted">
+                  {line.label === "recipe" ? "Recipe: " : "Combines into: "}
+                  {line.text}
+                </div>
+              ))}
             </div>
           )}
         </div>

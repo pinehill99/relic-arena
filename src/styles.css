@@ -61,7 +61,6 @@ button.ghost { background: transparent; }
 }
 .power { color: #fbbf24; font-weight: 600; }
 .tb-right { display: flex; align-items: center; gap: 10px; }
-
 /* layout */
 .layout {
   flex: 1;
@@ -282,6 +281,7 @@ button.ghost { background: transparent; }
 .skill { font-size: 12px; background: var(--panel2); padding: 6px; border-radius: 5px; }
 .insp-items { display: flex; flex-wrap: wrap; gap: 6px; }
 .insp-item { display: flex; align-items: center; gap: 3px; cursor: pointer; }
+.insp-recipes { display: flex; flex-direction: column; gap: 3px; }
 .sell-btn { background: #7f1d1d; border-color: #b91c1c; }
 
 .log { display: flex; flex-direction: column; gap: 2px; }

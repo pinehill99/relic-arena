@@ -1,22 +1,39 @@
-import type { GameState } from "../types";
+import type { GameState, RoundMonster } from "../types";
 import { RNG } from "./rng";
-import { isBossRound } from "../data/rounds";
 import { BASIC_ITEMS } from "../data/items";
 
-// Normal-round basic item drop schedule.
-function normalDropChances(round: number): { first: number; second: number } {
-  if (round <= 9) return { first: 0.18, second: 0 };
-  if (round <= 29) return { first: 0.35, second: 0 };
-  if (round <= 59) return { first: 0.55, second: 0.1 };
-  if (round <= 89) return { first: 0.7, second: 0.2 };
-  return { first: 1.0, second: 0.25 }; // 91-99 (and any normal at 100+, n/a)
-}
-
-const BOSS_DROPS: Record<number, number> = {
+const BOSS_DROP_ROLLS: Record<number, number> = {
   10: 2, 20: 3, 30: 3, 40: 4, 50: 4, 60: 5, 70: 5, 80: 6, 90: 6, 100: 8,
 };
 
-// Pick a basic item id, pity-balanced: under round 30, favor types the player has <2 of.
+// Each killed monster rolls once at its role rate (bosses roll multiple times).
+const ROLE_DROP_CHANCE: Record<string, number> = {
+  "weak melee": 0.22,
+  "melee striker": 0.24,
+  "ranged poke": 0.22,
+  tank: 0.26,
+  caster: 0.24,
+  assassin: 0.25,
+  "heavy tank": 0.28,
+  bruiser: 0.27,
+  "ranged magic": 0.24,
+  "elite melee": 0.34,
+  "elite tank": 0.36,
+  "elite caster": 0.35,
+  boss: 1.0,
+};
+
+export function monsterDropChance(monster: RoundMonster, round: number): number {
+  if (monster.isBoss) return 1;
+  const base = ROLE_DROP_CHANCE[monster.role] ?? 0.24;
+  const scale = 1 + Math.min(0.35, (round - 1) * 0.006);
+  return Math.min(0.95, base * scale);
+}
+
+export function bossDropRollCount(round: number): number {
+  return BOSS_DROP_ROLLS[round] ?? 2;
+}
+
 function pickBasic(state: GameState, round: number, rng: RNG): string {
   const ids = BASIC_ITEMS.map((b) => b.id);
   let weights: number[];
@@ -28,18 +45,25 @@ function pickBasic(state: GameState, round: number, rng: RNG): string {
   return rng.weighted(ids, weights);
 }
 
-// Roll item drops for a round. Mutates state.basicDropCounts. Returns dropped item ids.
-export function rollDrops(state: GameState, round: number, won: boolean, rng: RNG): string[] {
-  if (!won) return [];
+/** Roll item drops from monsters killed this round. Mutates state.basicDropCounts. */
+export function rollDrops(
+  state: GameState,
+  round: number,
+  monsters: RoundMonster[],
+  killedCount: number,
+  rng: RNG
+): string[] {
   const drops: string[] = [];
-  if (isBossRound(round)) {
-    const n = BOSS_DROPS[round] ?? 2;
-    for (let i = 0; i < n; i++) drops.push(pickBasic(state, round, rng));
-  } else {
-    const { first, second } = normalDropChances(round);
-    if (rng.chance(first)) drops.push(pickBasic(state, round, rng));
-    if (second > 0 && rng.chance(second)) drops.push(pickBasic(state, round, rng));
+  const killed = monsters.slice(0, Math.max(0, Math.min(killedCount, monsters.length)));
+
+  for (const monster of killed) {
+    const rolls = monster.isBoss ? bossDropRollCount(round) : 1;
+    const chance = monsterDropChance(monster, round);
+    for (let i = 0; i < rolls; i++) {
+      if (rng.chance(chance)) drops.push(pickBasic(state, round, rng));
+    }
   }
+
   for (const id of drops) {
     state.basicDropCounts[id] = (state.basicDropCounts[id] ?? 0) + 1;
   }

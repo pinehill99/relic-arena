@@ -1,5 +1,5 @@
 // Game orchestration: state creation, actions, persistence.
-import type { GameState, UnitInstance } from "./types";
+import type { GameState, RoundMonster, UnitInstance } from "./types";
 import { RNG } from "./engine/rng";
 import { initPool, returnToPool } from "./engine/pool";
 import { rollShop } from "./engine/shop";
@@ -8,6 +8,7 @@ import { gainXP, sellValue } from "./engine/economy";
 import { boardUnitCount, isEngineerTurret, reconcileEngineerTurrets } from "./engine/turrets";
 import { combineBasics, combineTier1, getItem, TIER1_BY_ID } from "./data/items";
 import { UNIT_BY_ID } from "./data/units";
+import { generateRound } from "./data/rounds";
 import {
   STARTING_HP,
   STARTING_LEVEL,
@@ -29,6 +30,10 @@ function withRng(state: GameState): RNG {
 }
 function commitRng(state: GameState, rng: RNG): void {
   state.rngState = rng.getState();
+}
+
+export function monstersForRound(state: GameState, round: number): RoundMonster[] {
+  return generateRound(round, new RNG(state.seed + round * 7919));
 }
 
 export function createInitialState(seed = Math.floor(Math.random() * 1e9)): GameState {
@@ -326,9 +331,13 @@ export function applyRoundResult(state: GameState, won: boolean, survivingEnemie
   // xp
   gainXP(state, XP_PER_ROUND);
 
-  // drops
+  // drops — each killed monster rolls individually
   const rng = withRng(state);
-  const drops = rollDrops(state, round, won, rng);
+  const roundMonsters = monstersForRound(state, round);
+  const killedCount = won
+    ? roundMonsters.length
+    : Math.max(0, roundMonsters.length - survivingEnemies);
+  const drops = rollDrops(state, round, roundMonsters, killedCount, rng);
   commitRng(state, rng);
   if (drops.length) {
     state.inventory.push(...drops);

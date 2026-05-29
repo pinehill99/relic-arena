@@ -39,4 +39,11 @@ describe("hover inspector locking", () => {
 
     expect(nextInspectFromHover(current, hovered, selectedUnit.iid)).toBe(hovered);
   });
+
+  it("shows item details on hover even while a unit is selected", () => {
+    const current: Inspect = { kind: "unit", inst: selectedUnit };
+    const hovered: Inspect = { kind: "item", itemId: "B1" };
+
+    expect(nextInspectFromHover(current, hovered, selectedUnit.iid)).toBe(hovered);
+  });
 });
