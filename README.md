@@ -2,6 +2,8 @@
 
 [한국어 README](README.ko.md) · [Patch notes](PATCH_NOTES.md)
 
+Current version: `v1.0.2`
+
 An original single-player PvE auto-battler. Draft units, build origin/class synergies, manage a finite unit pool, forge items, and survive 100 escalating rounds. Fully client-side (Vite + React + TypeScript), deterministic seeded RNG, state persisted to `localStorage`.
 
 All names, units, traits, items, icons, and copy are original. No third-party IP, assets, or references are used. Every icon is procedurally generated SVG — nothing is fetched.

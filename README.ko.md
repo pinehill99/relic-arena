@@ -2,6 +2,8 @@
 
 [English README](README.md) · [패치노트](PATCH_NOTES.md)
 
+현재 버전: `v1.0.2`
+
 Relic Arena는 오리지널 싱글 플레이 PvE 오토배틀러입니다. 유닛을 구매하고, 기원/직업 시너지를 맞추고, 한정된 유닛 풀과 아이템 조합을 관리하면서 100라운드까지 버티는 게임입니다. Vite, React, TypeScript로 만든 완전 클라이언트 사이드 게임이며, 시드 기반 deterministic RNG와 `localStorage` 저장을 사용합니다.
 
 모든 이름, 유닛, 특성, 아이템, 아이콘, 문구는 오리지널입니다. 외부 IP나 에셋을 사용하지 않았고, 아이콘은 절차적으로 생성한 SVG입니다.
